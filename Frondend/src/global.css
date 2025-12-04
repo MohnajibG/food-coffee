@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ===============  THEME GLOBAL — TAILWIND V4  =================
+   ============================================================ */
+@theme {
+  /* Couleurs génériques */
+  --color-gold: #d8b56a;
+  --color-lightGold: #ebd7a1;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  --animate-shimmer: shimmer 1.5s infinite;
+}
+
+/* ==================== THEME TRAITEUR ======================= */
+.theme-traiteur {
+  --color-primary: #4a1f29;
+  --color-secondary: #875d65;
+  --color-secondary-green: #618b25;
+  --color-secondary-green-light: #97b173;
+  --color-accent: var(--color-gold);
+  --color-accent-light: var(--color-lightGold);
+  --color-bg: #fff;
+  --color-text: #1a1a1a;
+}
+
+/* ==================== THEME CAFÉ ============================ */
+.theme-cafe {
+  --color-primary: #5c3a21;
+  --color-secondary: #8b5e34;
+  --color-tertiary: #d4a772;
+  --color-accent: var(--color-gold);
+  --color-accent-light: var(--color-lightGold);
+  --color-bg: #faf5ef;
+  --color-text: #2a1f16;
+}
+
+/* ==================== NORMALISATION ========================= */
+html,
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+.inputModern {
+  @apply w-full p-3 rounded-xl border border-gray-300 shadow-sm 
+         focus:border-[#50741f] focus:ring-2 focus:ring-[#50741f]/40 
+         transition text-gray-800;
+}
+.textareaModern {
+  @apply w-full p-3 rounded-xl border border-gray-300 shadow-sm 
+         focus:border-[#50741f] focus:ring-2 focus:ring-[#50741f]/40 
+         transition text-gray-800;
+}

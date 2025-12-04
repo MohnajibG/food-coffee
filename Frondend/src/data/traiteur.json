@@ -1,0 +1,322 @@
+{
+  "petit_dejeuner_et_pauses": {
+    "viennoiseries": [
+      { "nom": "Pain au chocolat", "prix": 1.1 },
+      { "nom": "Croissant", "prix": 1.1 },
+      { "nom": "Torsade", "prix": 1.5 },
+      { "nom": "Pain aux raisins", "prix": 1.3 },
+      { "nom": "Chausson aux pommes", "prix": 1.65 },
+      { "nom": "Pain suisse", "prix": 1.65 }
+    ],
+    "mini_viennoiseries": [
+      { "nom": "Mini pain au chocolat", "prix": 0.75 },
+      { "nom": "Mini croissant", "prix": 0.75 },
+      { "nom": "Mini torsade", "prix": 0.85 },
+      { "nom": "Mini pain aux raisins", "prix": 0.85 }
+    ],
+    "cakes": [
+      { "nom": "Cake citron pavot", "prix": 2.0 },
+      { "nom": "Cake nature", "prix": 2.0 },
+      { "nom": "Cake pépites chocolat", "prix": 2.0 },
+      { "nom": "Cake tout chocolat", "prix": 2.0 }
+    ],
+    "cookies_brownies_madeleines": [
+      { "nom": "Cookie pépite chocolat", "prix": 1.5 },
+      { "nom": "Cookie tout chocolat", "prix": 1.5 },
+      { "nom": "Brioche au chocolat", "prix": 2.5 },
+      { "nom": "Brownie", "prix": 2.5 },
+      { "nom": "Madeleine nature", "prix": 1.0 },
+      { "nom": "Madeleine fourrée chocolat", "prix": 1.2 }
+    ],
+    "donuts_beignets": {
+      "donuts": [
+        { "nom": "Donut chocolat noisette", "prix": 2.0 },
+        { "nom": "Donut Oréo", "prix": 2.0 },
+        { "nom": "Donut fraise", "prix": 2.0 }
+      ],
+      "mini_donuts": [
+        { "nom": "Mini donut nature", "prix": 1.0 },
+        { "nom": "Mini donut fraise", "prix": 1.0 }
+      ],
+      "beignets": [
+        { "nom": "Beignet chocolat", "prix": 1.5 },
+        { "nom": "Beignet fraise", "prix": 1.5 }
+      ],
+      "mini_beignets": [
+        { "nom": "Mini beignet chocolat", "prix": 1.0 },
+        { "nom": "Mini beignet nature", "prix": 1.0 }
+      ]
+    },
+    "mini_patisseries_macarons": [
+      { "nom": "Mini macaron", "prix": 1.45 },
+      { "nom": "Cannelé", "prix": 2.5 },
+      { "nom": "Mini cannelé", "prix": 1.3 },
+      { "nom": "Mini pâtisserie assortiment", "prix": 1.45 }
+    ],
+    "muffins_gaufres": {
+      "muffins": [
+        { "nom": "Muffin pépite chocolat", "prix": 1.5 },
+        { "nom": "Muffin tout chocolat", "prix": 1.5 },
+        { "nom": "Muffin fruits rouges", "prix": 1.5 }
+      ],
+      "mini_muffins": [
+        { "nom": "Mini muffin pépite chocolat", "prix": 1.0 },
+        { "nom": "Mini muffin tout chocolat", "prix": 1.0 },
+        { "nom": "Mini muffin fruits rouges", "prix": 1.0 }
+      ],
+      "gaufres": [
+        { "nom": "Gaufre chocolat", "prix": 2.0 },
+        { "nom": "Gaufre nature", "prix": 2.0 }
+      ],
+      "mini_gaufres": [
+        { "nom": "Mini gaufre chocolat", "prix": 1.0 },
+        { "nom": "Mini gaufre nature", "prix": 1.0 }
+      ]
+    },
+    "parts_de_gateaux": [
+      { "nom": "Moelleux chocolat", "prix": 3.0 },
+      { "nom": "Flan pâtissier", "prix": 3.0 },
+      { "nom": "Tarte aux pommes", "prix": 3.0 },
+      { "nom": "Tarte poire chocolat", "prix": 3.0 },
+      { "nom": "Gâteau pomme noix cannelle", "prix": 3.0 },
+      { "nom": "Gâteau basque", "prix": 3.0 },
+      { "nom": "Cheesecake", "prix": 3.9 }
+    ],
+    "desserts_en_pot": [
+      { "nom": "Tiramisu", "prix": 3.5 },
+      { "nom": "Panna cotta", "prix": 3.5 },
+      { "nom": "Mousse chocolat", "prix": 3.5 },
+      { "nom": "Compote", "prix": 3.0 },
+      { "nom": "Fromage blanc", "prix": 3.0 }
+    ],
+    "boissons_chaudes": [
+      { "nom": "Thermos café 1L", "prix": 15.0 },
+      { "nom": "Thermos thé 1L", "prix": 12.0 },
+      { "nom": "Thermos chocolat chaud 1L", "prix": 15.0 }
+    ],
+    "fruits": [
+      { "nom": "Brochette de fruits", "prix": 1.1 },
+      { "nom": "Petite coupelle de fruits", "prix": 1.5 },
+      { "nom": "Grande coupelle de fruits", "prix": 3.0 },
+      { "nom": "Corbeille de fruits 10 pers", "prix": 25.0 }
+    ],
+    "boissons_fraiches": [
+      { "nom": "Jus d’orange 1L", "prix": 5.9 },
+      { "nom": "Jus de pomme 1L", "prix": 5.9 },
+      { "nom": "Jus multifruit 1L", "prix": 5.9 },
+      { "nom": "Jus d’orange 25cl", "prix": 2.5 },
+      { "nom": "Jus de pomme 25cl", "prix": 2.5 },
+      { "nom": "Nectar abricot 25cl", "prix": 2.8 },
+      { "nom": "Bouteille eau plate 1.5L", "prix": 1.5 },
+      { "nom": "Bouteille eau plate/gazeuse 50cl", "prix": 1.0 },
+      { "nom": "Sodas assortis", "prix": 2.0 }
+    ]
+  },
+
+  "sandwiches": [
+    {
+      "type": "Sandwich Baguette",
+      "produits": [
+        { "nom": "Crudité thon", "prix_seul": 5.0, "prix_formule": 9.5 },
+        { "nom": "Crudité poulet", "prix_seul": 5.0, "prix_formule": 9.5 },
+        { "nom": "Crudité jambon", "prix_seul": 5.0, "prix_formule": 9.5 },
+        { "nom": "Légumes marinés", "prix_seul": 5.5, "prix_formule": 9.5 }
+      ]
+    },
+    {
+      "type": "Bagels",
+      "produits": [
+        { "nom": "Jambon emmental", "prix_seul": 6.5, "prix_formule": 10.5 },
+        { "nom": "Crudité saumon", "prix_seul": 6.5, "prix_formule": 10.5 },
+        {
+          "nom": "Crudité jambon de dinde",
+          "prix_seul": 6.5,
+          "prix_formule": 10.5
+        }
+      ]
+    },
+    {
+      "type": "Wraps",
+      "produits": [
+        { "nom": "Wrap thon", "prix_seul": 5.5, "prix_formule": 10.5 },
+        {
+          "nom": "Wrap crudité poulet",
+          "prix_seul": 5.5,
+          "prix_formule": 10.5
+        },
+        {
+          "nom": "Wrap crudité saumon fumé",
+          "prix_seul": 5.5,
+          "prix_formule": 10.5
+        },
+        { "nom": "Wrap falafel", "prix_seul": 5.5, "prix_formule": 10.5 }
+      ]
+    },
+    {
+      "type": "Bun’s",
+      "produits": [
+        {
+          "nom": "Crudité saumon fumé",
+          "prix_seul": 6.5,
+          "prix_formule": 10.5
+        },
+        { "nom": "Crudité poulet", "prix_seul": 6.5, "prix_formule": 10.5 }
+      ]
+    },
+    {
+      "type": "Club Sandwiches",
+      "produits": [
+        { "nom": "Poulet crudités", "prix": 8.5 },
+        { "nom": "Thon crudités", "prix": 8.5 },
+        { "nom": "Jambon crudités", "prix": 8.5 }
+      ]
+    }
+  ],
+
+  "salades": [
+    {
+      "nom": "Salade poulet façon César",
+      "prix_seul": 8.5,
+      "prix_formule": 12.9,
+      "composition": "Salade batavia, émincé poulet, tomate cerise, crouton, fromage"
+    },
+    {
+      "nom": "Salade Parisienne",
+      "prix_seul": 8.5,
+      "prix_formule": 12.9,
+      "composition": "Salade batavia, jambon, emmental, tomate, carottes râpées, œuf dur"
+    },
+    {
+      "nom": "Salade Grecque",
+      "prix_seul": 8.5,
+      "prix_formule": 12.9,
+      "composition": "Salade batavia, tomate, concombre, persil, feta, olives"
+    },
+    {
+      "nom": "Salade Nordique",
+      "prix_seul": 8.5,
+      "prix_formule": 12.9,
+      "composition": "Salade batavia, saumon fumé, tomate, crouton, crème"
+    },
+    {
+      "nom": "Salade Légumes Marinés",
+      "prix_seul": 8.5,
+      "prix_formule": 12.9,
+      "composition": "Aubergine, courgette marinées"
+    }
+  ],
+
+  "plateaux_repas": [
+    {
+      "nom": "L’Italien",
+      "prix": 19.9,
+      "entree": "Salade batavia, tomate, mozzarella, filets huile olive",
+      "plat": "Linguine crème pesto, parmesan, émincé poulet rôti",
+      "dessert": "Tiramisu"
+    },
+    {
+      "nom": "Le Libanais",
+      "prix": 19.9,
+      "entree": "Salade batavia, tomate cerise, concombre, carottes, vinaigrette",
+      "plat": "Poulet façon taboulé, houmous, caviar aubergine",
+      "dessert": "Moelleux chocolat"
+    },
+    {
+      "nom": "Le Pêcheur",
+      "prix": 22.9,
+      "entree": "Quiche saumon",
+      "plat": "Dos cabillaud crème citronnée, pommes terre, haricots verts",
+      "dessert": "Gâteau basque"
+    },
+    {
+      "nom": "L’Indien",
+      "prix": 20.9,
+      "entree": "Salade batavia, tomates, carottes râpées",
+      "plat": "Emincé poulet curry, riz basmati",
+      "dessert": "Salade de fruits"
+    },
+    {
+      "nom": "Le Gaulois",
+      "prix": 21.9,
+      "entree": "Quiche lorraine",
+      "plat": "Gratin pomme terre, haricots verts, boulettes bœuf crème champignon",
+      "dessert": "Flan pâtissier"
+    },
+    {
+      "nom": "L’Oriental",
+      "prix": 20.9,
+      "entree": "Salade riz légumes et thon",
+      "plat": "Emincé poulet olives avec semoule",
+      "dessert": "Cookies"
+    },
+    {
+      "nom": "Le Nordique",
+      "prix": 20.9,
+      "entree": "Mini suédois fromage frais concombre",
+      "plat": "Tortellini ricotta épinard, saumon fumé crème fromage",
+      "dessert": "Tarte aux pommes"
+    },
+    {
+      "nom": "L’Exotique",
+      "prix": 19.9,
+      "entree": "Salade coleslaw",
+      "plat": "Poke saumon fumé, riz vinaigré, radis, concombre",
+      "dessert": "Salade de fruits"
+    }
+  ],
+
+  "cocktail": {
+    "pieces_salees": [
+      { "nom": "Navette poulet", "prix": 1.45 },
+      { "nom": "Navette poulet épicé", "prix": 1.45 },
+      { "nom": "Navette saumon fumé", "prix": 1.45 },
+      { "nom": "Navette jambon fromage", "prix": 1.45 },
+
+      { "nom": "Blini pesto mozza", "prix": 1.45 },
+      { "nom": "Blini tapenade radis", "prix": 1.45 },
+      { "nom": "Blini tzatziki concombre", "prix": 1.45 },
+
+      { "nom": "Mini burger végétarien", "prix": 1.45 },
+      { "nom": "Mini burger poulet", "prix": 1.45 },
+
+      { "nom": "Mini pizza végétarienne", "prix": 1.45 },
+      { "nom": "Mini pizza 3 fromages", "prix": 1.45 },
+
+      { "nom": "Mini wrap poulet", "prix": 1.45 },
+      { "nom": "Mini wrap épicé", "prix": 1.45 },
+      { "nom": "Mini wrap jambon dinde", "prix": 1.45 },
+      { "nom": "Mini wrap saumon fumé", "prix": 1.45 },
+
+      { "nom": "Mini suédois jambon fromage", "prix": 1.45 },
+      { "nom": "Mini suédois jambon dinde", "prix": 1.45 },
+      { "nom": "Mini suédois saumon fumé", "prix": 1.45 },
+
+      { "nom": "Brochette olive tomate raisin", "prix": 1.45 },
+      { "nom": "Brochette tomate mozza", "prix": 1.45 },
+      { "nom": "Brochette jambon dinde", "prix": 1.45 },
+      { "nom": "Brochette saumon fumé", "prix": 1.45 },
+
+      { "nom": "Mini quiche tomate chèvre", "prix": 1.45 },
+      { "nom": "Mini quiche lorraine", "prix": 1.45 },
+      { "nom": "Mini quiche poireaux", "prix": 1.45 },
+
+      { "nom": "Verrine taboulé", "prix": 1.8 },
+      { "nom": "Verrine guacamole", "prix": 1.8 },
+      { "nom": "Verrine saumon fumé", "prix": 1.8 }
+    ],
+    "pieces_sucrees": [
+      { "nom": "Mini pâtisserie assortiment", "prix": 1.45 },
+      { "nom": "Mini éclair chocolat", "prix": 1.45 },
+      { "nom": "Mini éclair vanille", "prix": 1.45 },
+      { "nom": "Mini éclair caramel", "prix": 1.45 },
+      { "nom": "Mini choux chocolat", "prix": 1.45 },
+      { "nom": "Mini choux vanille", "prix": 1.45 },
+      { "nom": "Mini choux caramel", "prix": 1.45 },
+      { "nom": "Mini cake assortiment", "prix": 1.45 },
+      { "nom": "Macaron assortiment", "prix": 1.45 },
+      { "nom": "Verrine tiramisu", "prix": 1.6 },
+      { "nom": "Verrine mousse chocolat", "prix": 1.6 },
+      { "nom": "Verrine panna cotta", "prix": 1.6 }
+    ]
+  }
+}
