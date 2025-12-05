@@ -1,0 +1,184 @@
+{
+  "plats_chauds": [
+    {
+      "nom": "Pâtes Bolognaise",
+      "prix": 6.5,
+      "description": "Pâtes fraîches, sauce tomate maison, viande hachée.",
+      "photos": ["/images/cafeteria/plats/bolognaise.jpg"]
+    },
+    {
+      "nom": "Pâtes Carbonara",
+      "prix": 6.5,
+      "description": "Crème, parmesan, lardons halal.",
+      "photos": ["/images/cafeteria/plats/carbonara.jpg"]
+    },
+    {
+      "nom": "Poulet rôti + accompagnement",
+      "prix": 7.5,
+      "description": "Poulet mariné rôti et garniture du jour.",
+      "photos": ["/images/cafeteria/plats/poulet.jpg"]
+    },
+    {
+      "nom": "Burger maison + frites",
+      "prix": 8.5,
+      "description": "Pain brioché, steak halal, cheddar, frites fraîches.",
+      "photos": ["/images/cafeteria/plats/burger.jpg"]
+    }
+  ],
+
+  "sandwichs": [
+    {
+      "nom": "Sandwich Thon Crudités",
+      "prix": 4.5,
+      "description": "Thon, mayo, salade, tomates, concombres.",
+      "photos": ["/images/cafeteria/sandwichs/thon.jpg"]
+    },
+    {
+      "nom": "Sandwich Poulet Crudités",
+      "prix": 4.5,
+      "description": "Poulet épicé, mayo, salade, tomates.",
+      "photos": ["/images/cafeteria/sandwichs/poulet.jpg"]
+    },
+    {
+      "nom": "Sandwich Jambon dinde Emmental",
+      "prix": 4.5,
+      "description": "Jambon dinde halal, emmental, beurre.",
+      "photos": ["/images/cafeteria/sandwichs/jambon.jpg"]
+    },
+    {
+      "nom": "Wrap Poulet",
+      "prix": 5.0,
+      "description": "Poulet snacké, sauce blanche, salade.",
+      "photos": ["/images/cafeteria/sandwichs/wrap_poulet.jpg"]
+    }
+  ],
+
+  "snacks": [
+    {
+      "nom": "Panini Poulet",
+      "prix": 5.0,
+      "description": "Poulet mariné, mozzarella.",
+      "photos": ["/images/cafeteria/snacks/panini_poulet.jpg"]
+    },
+    {
+      "nom": "Panini Thon",
+      "prix": 5.0,
+      "description": "Thon, fromage, tomates.",
+      "photos": ["/images/cafeteria/snacks/panini_thon.jpg"]
+    },
+    {
+      "nom": "Croque-Monsieur",
+      "prix": 3.5,
+      "description": "Pain de mie, dinde, emmental gratiné.",
+      "photos": ["/images/cafeteria/snacks/croque.jpg"]
+    }
+  ],
+
+  "viennoiseries": [
+    {
+      "nom": "Croissant",
+      "prix": 1.0,
+      "photos": ["/images/cafeteria/viennoiseries/croissant.jpg"]
+    },
+    {
+      "nom": "Pain au chocolat",
+      "prix": 1.0,
+      "photos": ["/images/cafeteria/viennoiseries/pain_choco.jpg"]
+    },
+    {
+      "nom": "Torsade",
+      "prix": 1.3,
+      "photos": ["/images/cafeteria/viennoiseries/torsade.jpg"]
+    }
+  ],
+
+  "boissons_chaudes": [
+    {
+      "nom": "Café",
+      "prix": 1.2,
+      "photos": ["/images/cafeteria/boissons_chaudes/cafe.jpg"]
+    },
+    {
+      "nom": "Cappuccino",
+      "prix": 1.8,
+      "photos": ["/images/cafeteria/boissons_chaudes/cappuccino.jpg"]
+    },
+    {
+      "nom": "Thé",
+      "prix": 1.2,
+      "photos": ["/images/cafeteria/boissons_chaudes/the.jpg"]
+    },
+    {
+      "nom": "Chocolat chaud",
+      "prix": 2.0,
+      "photos": ["/images/cafeteria/boissons_chaudes/chocolat.jpg"]
+    }
+  ],
+
+  "boissons_froides": [
+    {
+      "nom": "Eau plate 50cl",
+      "prix": 1.0,
+      "photos": ["/images/cafeteria/boissons_froides/eau.jpg"]
+    },
+    {
+      "nom": "Eau gazeuse 50cl",
+      "prix": 1.2,
+      "photos": ["/images/cafeteria/boissons_froides/gazeuse.jpg"]
+    },
+    {
+      "nom": "Coca-Cola",
+      "prix": 2.0,
+      "photos": ["/images/cafeteria/boissons_froides/coca.jpg"]
+    },
+    {
+      "nom": "Jus d’orange 25cl",
+      "prix": 2.5,
+      "photos": ["/images/cafeteria/boissons_froides/jus_orange.jpg"]
+    }
+  ],
+
+  "desserts": [
+    {
+      "nom": "Brownie",
+      "prix": 2.0,
+      "photos": ["/images/cafeteria/desserts/brownie.jpg"]
+    },
+    {
+      "nom": "Cookie chocolat",
+      "prix": 1.5,
+      "photos": ["/images/cafeteria/desserts/cookie.jpg"]
+    },
+    {
+      "nom": "Muffin chocolat",
+      "prix": 2.0,
+      "photos": ["/images/cafeteria/desserts/muffin.jpg"]
+    },
+    {
+      "nom": "Salade de fruits",
+      "prix": 2.5,
+      "photos": ["/images/cafeteria/desserts/fruits.jpg"]
+    }
+  ],
+
+  "formules": [
+    {
+      "nom": "Formule Sandwich",
+      "prix": 7.5,
+      "description": "Sandwich + Boisson + Dessert",
+      "photos": ["/images/cafeteria/formules/formule_sandwich.jpg"]
+    },
+    {
+      "nom": "Formule Chaud",
+      "prix": 9.5,
+      "description": "Plat chaud + Boisson + Dessert",
+      "photos": ["/images/cafeteria/formules/formule_chaud.jpg"]
+    },
+    {
+      "nom": "Formule Snack",
+      "prix": 6.5,
+      "description": "Snack chaud + Boisson",
+      "photos": ["/images/cafeteria/formules/formule_snack.jpg"]
+    }
+  ]
+}

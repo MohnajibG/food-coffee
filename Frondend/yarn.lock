@@ -173,13 +173,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0":
-  version: 7.28.4
-  resolution: "@babel/runtime@npm:7.28.4"
-  checksum: 934b0a0460f7d06637d93fcd1a44ac49adc33518d17253b5a0b55ff4cb90a45d8fe78bf034b448911dbec7aff2a90b918697559f78d21c99ff8dbadae9565b55
-  languageName: node
-  linkType: hard
-
 "@babel/template@npm:^7.27.2":
   version: 7.27.2
   resolution: "@babel/template@npm:7.27.2"
@@ -705,7 +698,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@napi-rs/canvas@npm:^0.1.80, @napi-rs/canvas@npm:^0.1.81":
+"@napi-rs/canvas@npm:^0.1.80":
   version: 0.1.83
   resolution: "@napi-rs/canvas@npm:0.1.83"
   dependencies:
@@ -1220,15 +1213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-pdf@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@types/react-pdf@npm:7.0.0"
-  dependencies:
-    react-pdf: "*"
-  checksum: 9c53f15ed6fc99882c382dd0d14811dadd4e7bd77edd332a7985e7c5acde11b8ab0c8e0be24c57be4a5ae04479266a28fe079b5b1c48032b43f280af1bf3f15d
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:^19.2.2":
   version: 19.2.6
   resolution: "@types/react@npm:19.2.6"
@@ -1588,13 +1572,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "clsx@npm:1.2.1"
-  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
-  languageName: node
-  linkType: hard
-
 "clsx@npm:^2.0.0":
   version: 2.1.1
   resolution: "clsx@npm:2.1.1"
@@ -1687,13 +1664,6 @@ __metadata:
   version: 2.1.2
   resolution: "detect-libc@npm:2.1.2"
   checksum: 471740d52365084c4b2ae359e507b863f2b1d79b08a92835ebdf701918e08fc9cfba175b3db28483ca33b155e1311a91d69dc42c6d192b476f41a9e1f094ce6a
-  languageName: node
-  linkType: hard
-
-"dommatrix@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "dommatrix@npm:1.0.3"
-  checksum: 8ac727c1a14cf8de30a5b49a3bd6b2622a661b391fe1ac54e855eaa14a857ed86d63492150b5f70f912acc24fa3acc31d750259c47e9b5801de237624b0a319f
   languageName: node
   linkType: hard
 
@@ -2119,19 +2089,17 @@ __metadata:
     "@types/node": ^24.10.0
     "@types/react": ^19.2.2
     "@types/react-dom": ^19.2.2
-    "@types/react-pdf": ^7.0.0
     "@vitejs/plugin-react": ^5.1.0
     eslint: ^9.39.1
     eslint-plugin-react-hooks: ^7.0.1
     eslint-plugin-react-refresh: ^0.4.24
     framer-motion: ^12.23.25
     globals: ^16.5.0
-    pdfjs-dist: 5.4.449
     react: ^19.2.0
     react-dom: ^19.2.0
     react-icons: ^5.5.0
     react-pageflip: ^2.0.3
-    react-pdf: 6.1.0
+    react-pdf: ^10.2.0
     react-router-dom: ^7.9.6
     tailwindcss: ^4.1.17
     turn.js: ^1.0.5
@@ -2650,7 +2618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -2686,24 +2654,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-cancellable-promise@npm:^1.0.0":
-  version: 1.3.2
-  resolution: "make-cancellable-promise@npm:1.3.2"
-  checksum: d4dcad8211272a4d6ef979747a3d7085cdefb92cf50e096ab6a3ea8295e7578b82edaac261c7c4e3d656eadfac285f05b98856b3cf1fd14390ec2708328a9b35
-  languageName: node
-  linkType: hard
-
 "make-cancellable-promise@npm:^2.0.0":
   version: 2.0.0
   resolution: "make-cancellable-promise@npm:2.0.0"
   checksum: 5020506bce073235dd14d25614c0283e4c864d6641cb3cbc9a1807c2151a685c20ce005f1805155b4e2fac6a9bbe0fa39ccb7dd2d623744c1526651f0768cbee
-  languageName: node
-  linkType: hard
-
-"make-event-props@npm:^1.1.0":
-  version: 1.6.2
-  resolution: "make-event-props@npm:1.6.2"
-  checksum: ded823d8b73926d94513416c75585be2cea9d9408b085eed31c20a1005147661a50852f869e1779990ddd04c8e07e1f24c766453cc9b4870bcef8d79c533a5fc
   languageName: node
   linkType: hard
 
@@ -2730,18 +2684,6 @@ __metadata:
     promise-retry: ^2.0.1
     ssri: ^13.0.0
   checksum: 4fb9dbb739b33565c85dacdcff7eb9388d8f36f326a59dc13375f01af809c42c48aa5d1f4840ee36623b2461a15476e1e79e4548ca1af30b42e1e324705ac8b3
-  languageName: node
-  linkType: hard
-
-"merge-refs@npm:^1.0.0":
-  version: 1.3.0
-  resolution: "merge-refs@npm:1.3.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 8400f716a77857dac6b5d49cd5ef69cec7bff6c5555785c5e91a5142fbb5f3e6fe81282bc5be1f01c0c0843ed29f5b4169bfa9838ec69c459b4538f3fef3e79c
   languageName: node
   linkType: hard
 
@@ -2961,13 +2903,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "object-assign@npm:4.1.1"
-  checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
-  languageName: node
-  linkType: hard
-
 "optionator@npm:^0.9.3":
   version: 0.9.4
   resolution: "optionator@npm:0.9.4"
@@ -3054,21 +2989,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfjs-dist@npm:2.16.105":
-  version: 2.16.105
-  resolution: "pdfjs-dist@npm:2.16.105"
-  dependencies:
-    dommatrix: ^1.0.3
-    web-streams-polyfill: ^3.2.1
-  peerDependencies:
-    worker-loader: ^3.0.8
-  peerDependenciesMeta:
-    worker-loader:
-      optional: true
-  checksum: 16ad2fa0ff8404fefd1a3e83f92ef1a594fcc4d3ff65512f801365c8f06d300d4a38023a867994f0b964a8e146773e6dcc9988c7c1a791917eb6371d5bd72863
-  languageName: node
-  linkType: hard
-
 "pdfjs-dist@npm:5.4.296":
   version: 5.4.296
   resolution: "pdfjs-dist@npm:5.4.296"
@@ -3078,18 +2998,6 @@ __metadata:
     "@napi-rs/canvas":
       optional: true
   checksum: c91824f47fb1344ad1b2b2305eb2ef05996abeb6c429b5eec4c0e245ac9757347e79e53ba0f6bb38309bb40650d607f830befd392cfaebf447d0bed6589be33c
-  languageName: node
-  linkType: hard
-
-"pdfjs-dist@npm:5.4.449":
-  version: 5.4.449
-  resolution: "pdfjs-dist@npm:5.4.449"
-  dependencies:
-    "@napi-rs/canvas": ^0.1.81
-  dependenciesMeta:
-    "@napi-rs/canvas":
-      optional: true
-  checksum: b14da20e18c5c16c829ec3a5fd7224a7dddf1b932104549455f6f7ced112d180136cca0ec7608d8fa3922dee86a2ce7b80398754b2c222f82a837f60eff958c3
   languageName: node
   linkType: hard
 
@@ -3149,17 +3057,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2":
-  version: 15.8.1
-  resolution: "prop-types@npm:15.8.1"
-  dependencies:
-    loose-envify: ^1.4.0
-    object-assign: ^4.1.1
-    react-is: ^16.13.1
-  checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
-  languageName: node
-  linkType: hard
-
 "punycode@npm:^2.1.0":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
@@ -3194,13 +3091,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
-  version: 16.13.1
-  resolution: "react-is@npm:16.13.1"
-  checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
 "react-pageflip@npm:^2.0.3":
   version: 2.0.3
   resolution: "react-pageflip@npm:2.0.3"
@@ -3210,7 +3100,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-pdf@npm:*":
+"react-pdf@npm:^10.2.0":
   version: 10.2.0
   resolution: "react-pdf@npm:10.2.0"
   dependencies:
@@ -3230,30 +3120,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 8b051d28acefbdc92415f1ac4b88077d752d01282802206fd5a2a71fbb9866567a22ef49bd76d992d0ebf318cc6be7be54bc8cd1c7eca8adad694adb7881cc49
-  languageName: node
-  linkType: hard
-
-"react-pdf@npm:6.1.0":
-  version: 6.1.0
-  resolution: "react-pdf@npm:6.1.0"
-  dependencies:
-    "@babel/runtime": ^7.0.0
-    clsx: ^1.2.1
-    make-cancellable-promise: ^1.0.0
-    make-event-props: ^1.1.0
-    merge-refs: ^1.0.0
-    pdfjs-dist: 2.16.105
-    prop-types: ^15.6.2
-    tiny-invariant: ^1.0.0
-    tiny-warning: ^1.0.0
-  peerDependencies:
-    file-loader: ^6.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    file-loader:
-      optional: true
-  checksum: 3a309b8cd639fffd1f25774fb8d3fb7af21acd7ad04a93a68fe2215bda5ee7bdd0d52f664f8b69e35e4205f2544ac50b1f9f201292fa4f5824fb3f13bf331d37
   languageName: node
   linkType: hard
 
@@ -3606,13 +3472,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-warning@npm:^1.0.0":
-  version: 1.0.3
-  resolution: "tiny-warning@npm:1.0.3"
-  checksum: da62c4acac565902f0624b123eed6dd3509bc9a8d30c06e017104bedcf5d35810da8ff72864400ad19c5c7806fc0a8323c68baf3e326af7cb7d969f846100d71
-  languageName: node
-  linkType: hard
-
 "tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.15":
   version: 0.2.15
   resolution: "tinyglobby@npm:0.2.15"
@@ -3810,13 +3669,6 @@ __metadata:
   dependencies:
     loose-envify: ^1.0.0
   checksum: 4f2cb6a9575e4faf71ddad9ad1ae7a00d0a75d24521c193fa464f30e6b04027bd97aa5d9546b0e13d3a150ab402eda216d59c1d0f2d6ca60124d96cd40dfa35c
-  languageName: node
-  linkType: hard
-
-"web-streams-polyfill@npm:^3.2.1":
-  version: 3.3.3
-  resolution: "web-streams-polyfill@npm:3.3.3"
-  checksum: 21ab5ea08a730a2ef8023736afe16713b4f2023ec1c7085c16c8e293ee17ed085dff63a0ad8722da30c99c4ccbd4ccd1b2e79c861829f7ef2963d7de7004c2cb
   languageName: node
   linkType: hard
 

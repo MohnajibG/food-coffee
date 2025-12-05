@@ -8,6 +8,8 @@ import Traiteur from "./pages/Traiteur";
 import Cafeterias from "./pages/Cafeterias";
 import Contact from "./pages/Contact";
 
+import Precommande from "./pages/Precommande";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +21,7 @@ const App = () => {
             <Route path="/traiteur" element={<Traiteur />} />
             <Route path="/cafeterias" element={<Cafeterias />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/precommande" element={<Precommande />} />
           </Routes>
         </main>
         <Footer />

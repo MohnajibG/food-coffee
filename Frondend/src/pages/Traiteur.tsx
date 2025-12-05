@@ -25,7 +25,7 @@ const HeroCarousel: FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden mt-12">
       {heroPhotos.map((src, i) => (
         <img
           key={i}
@@ -70,9 +70,9 @@ const HeroCarousel: FC = () => {
 
 const Catalogue: FC = () => {
   return (
-    <section id="catalogue" className="py-20 px-6 md:px-16 bg-gray-50">
-      <h2 className="text-center text-5xl font-extralight text-gold mb-12">
-        Catalogue FOOD & COFFEE
+    <section id="catalogue" className=" md:px-16 bg-gold/10">
+      <h2 className="text-center text-7xl font-extralight text-gold my-24">
+        Catalogue <br /> FOOD & COFFEE
       </h2>
 
       <div className="w-full flex justify-center">
