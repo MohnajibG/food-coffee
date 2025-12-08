@@ -1,24 +1,44 @@
-# Logs
-logs
-*.log
+# .gitignore pour le dossier Frontend
+
+# Node
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Env
+.env
+.env.local
+.env.*.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Build / cache
+dist/
+build/
+out/
+.cache/
+coverage/
+.vite/
+.parcel-cache/
+public/build/
+.next/
+.svelte-kit/
+
+# Editor / OS
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+/.pnp.*
