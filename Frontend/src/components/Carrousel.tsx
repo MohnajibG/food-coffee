@@ -24,7 +24,7 @@ const Carousel: FC<{ photos: Array<string | undefined> }> = ({ photos }) => {
   }, []);
 
   return (
-    <div className="relative w-full h-56 overflow-hidden rounded-xl shadow-lg">
+    <div className="relative w-full h-56 overflow-hidden rounded-xl shadow-lg mt-36">
       {photos.map((src, i) => (
         <img
           key={i}

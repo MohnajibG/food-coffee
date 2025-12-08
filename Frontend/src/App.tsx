@@ -8,7 +8,7 @@ import Traiteur from "./pages/Traiteur";
 import Cafeterias from "./pages/Cafeterias";
 import Contact from "./pages/Contact";
 
-import Precommande from "./pages/Precommande";
+import Order from "./pages/Order";
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/traiteur" element={<Traiteur />} />
             <Route path="/cafeterias" element={<Cafeterias />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/precommande" element={<Precommande />} />
+            <Route path="/order" element={<Order />} />
           </Routes>
         </main>
         <Footer />
