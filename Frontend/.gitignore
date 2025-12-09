@@ -1,42 +1,13 @@
-# .gitignore pour le dossier Frontend
-
-# Node
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Env
-.env
-.env.local
-.env.*.local
-
-# Build / cache
 dist/
 build/
-out/
-.cache/
-coverage/
-.vite/
-.parcel-cache/
-public/build/
-.next/
-.svelte-kit/
-
-# Editor / OS
-.vscode/
-.idea/
-*.iml
-*.sublime-workspace
-*.sublime-project
+.env
 .DS_Store
-Thumbs.db
-
-# Logs
-logs/
+.vscode/
+npm-debug.log*
+yarn-error.log*
+.idea/
+coverage/
+*.local
 *.log
-
-# TypeScript
 *.tsbuildinfo
-
