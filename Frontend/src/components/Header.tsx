@@ -1,12 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import NavDesktop from "./Nav";
+import NavDesktop from "./NavDesktop.tsx";
+import MobileMenu from "./MobileMenu.tsx";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Détection du thème (traiteur / cafeteria)
   const theme = location.pathname.includes("cafeterias")
     ? "theme-cafe"
     : "theme-traiteur";
@@ -28,30 +31,37 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`${theme} fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 md:px-10`}
-      style={headerStyle}
-    >
-      {/* LEFT — LOGO */}
-      <div className="flex items-center justify-between gap-70">
-        <button
-          className="md:hidden text-2xl"
-          style={{ color: "var(--color-text)" }}
-        >
-          <FiMenu />
-        </button>
-        <div className="flex flex-col items-center gap-2">
+    <>
+      <header
+        className={`${theme} fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 md:px-10`}
+        style={headerStyle}
+      >
+        {/* LEFT — BURGER + LOGO */}
+        <div className="flex items-center gap-6">
+          {/* BURGER MOBILE */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden text-3xl"
+            style={{ color: "var(--color-text)" }}
+          >
+            <FiMenu />
+          </button>
+
+          {/* LOGO */}
           <img
             src="/images/logo.png"
             alt="Food Coffee Logo"
-            className="h-25 w-auto object-contain rounded-sm"
+            className="h-14 w-auto object-contain rounded-sm"
           />
         </div>
-      </div>
 
-      {/* RIGHT — NAV DESKTOP */}
-      <NavDesktop />
-    </header>
+        {/* RIGHT — NAV DESKTOP */}
+        <NavDesktop />
+      </header>
+
+      {/* MOBILE MENU */}
+      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 };
 
