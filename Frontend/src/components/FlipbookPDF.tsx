@@ -14,9 +14,6 @@ export default function FlipbookPDF() {
   const [width, setWidth] = useState(900);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  /* ---------------------------------------------
-     Resize dynamique
-  --------------------------------------------- */
   useEffect(() => {
     if (!ref.current) return;
     const obs = new ResizeObserver((entries) => {
@@ -27,9 +24,6 @@ export default function FlipbookPDF() {
     return () => obs.disconnect();
   }, []);
 
-  /* ---------------------------------------------
-     Chargement PDF → Blob
-  --------------------------------------------- */
   useEffect(() => {
     let stop = false;
     let obj: string | null = null;
@@ -63,9 +57,6 @@ export default function FlipbookPDF() {
 
   const spread = Math.floor(width / 2) - 20;
 
-  /* ---------------------------------------------
-     ANIMATION LIVRE PREMIUM (Framer v12 compatible)
-  --------------------------------------------- */
   const pageTurn = {
     initial: {
       opacity: 0,
@@ -80,10 +71,7 @@ export default function FlipbookPDF() {
       scale: 1,
       x: 0,
       boxShadow: "0 15px 40px rgba(0,0,0,0.12)",
-      transition: {
-        duration: 0.55,
-        ease: easeOut,
-      },
+      transition: { duration: 0.55, ease: easeOut },
     },
     exit: {
       opacity: 0,
@@ -91,28 +79,25 @@ export default function FlipbookPDF() {
       scale: 0.96,
       x: -60,
       boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
-      transition: {
-        duration: 0.45,
-        ease: easeIn,
-      },
+      transition: { duration: 0.45, ease: easeIn },
     },
   };
 
   return (
-    <section className="min-h-screen w-full bg-[#faf8f3] py-20 px-4 flex justify-center">
+    <section className="min-h-screen w-full bg-(--color-bg) py-20 px-4 flex justify-center theme-traiteur">
       <div
         ref={ref}
         className="w-full max-w-6xl mx-auto flex flex-col items-center relative"
       >
         {/* Cadre premium */}
-        <div className="absolute inset-0 mx-auto max-w-4xl -z-10 bg-linear-to-b from-white to-[#faf3d5] rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.07)]" />
+        <div className="absolute inset-0 mx-auto max-w-4xl -z-10 bg-linear-to-b from-white to-lightGold rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.07)]" />
 
-        {/* ------------------- FLIPBOOK ------------------- */}
+        {/* FLIPBOOK */}
         {blobUrl ? (
           <Document
             file={blobUrl}
             onLoadSuccess={onDocLoadSuccess}
-            loading={<div className="text-gray-600 mt-10">Chargement…</div>}
+            loading={<div className="text-gray-600 mt-10">Loading…</div>}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -123,7 +108,6 @@ export default function FlipbookPDF() {
                 exit="exit"
                 className="flex justify-center gap-6 perspective-1000 p-10"
               >
-                {/* Page gauche */}
                 <div className="rounded-xl overflow-hidden bg-white shadow-lg">
                   <Page
                     pageNumber={page}
@@ -133,7 +117,6 @@ export default function FlipbookPDF() {
                   />
                 </div>
 
-                {/* Page droite */}
                 {page + 1 <= numPages && (
                   <div className="rounded-xl overflow-hidden bg-white shadow-lg">
                     <Page
@@ -148,38 +131,38 @@ export default function FlipbookPDF() {
             </AnimatePresence>
           </Document>
         ) : (
-          <div className="text-gray-600 mt-10">Chargement…</div>
+          <div className="text-gray-600 mt-10">Loading…</div>
         )}
 
-        {/* ----------------------- NAVIGATION PREMIUM ----------------------- */}
+        {/* NAVIGATION */}
         {numPages > 0 && (
-          <div className="flex items-center gap-6 mt-10">
+          <div className="flex flex-wrap items-center gap-4 mt-10 justify-center">
             <button
               onClick={prev}
               disabled={page <= 1}
-              className="px-6 py-3 rounded-full bg-[#faf3d5] border border-[#d4af37] text-[#3d5a17] font-semibold shadow-md hover:bg-[#f3e8c1] transition disabled:opacity-40"
+              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-semibold shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
             >
-              ← Page précédente
+              ← Previous Page
             </button>
 
-            <span className="text-[#3d5a17] font-semibold tracking-wide">
+            <span className="text-(--color-primary) font-semibold tracking-wide">
               {page} / {numPages}
             </span>
 
             <button
               onClick={next}
               disabled={page >= numPages}
-              className="px-6 py-3 rounded-full bg-[#faf3d5] border border-[#d4af37] text-[#3d5a17] font-semibold shadow-md hover:bg-[#f3e8c1] transition disabled:opacity-40"
+              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-semibold shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
             >
-              Page suivante →
+              Next Page →
             </button>
 
             <a
               href={PDF_PATH}
               download
-              className="px-6 py-3 rounded-full bg-[#50741f] text-white font-semibold shadow-lg hover:bg-[#3d5a17] transition"
+              className="px-6 py-3 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold shadow-lg hover:bg-(--color-secondary-green) transition"
             >
-              Télécharger PDF
+              Download PDF
             </a>
           </div>
         )}

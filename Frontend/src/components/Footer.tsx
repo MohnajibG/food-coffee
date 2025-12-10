@@ -1,98 +1,96 @@
 const Footer = () => {
   return (
     <footer
-      className="theme-traiteur relative px-8 py-16 md:px-16"
+      className="theme-traiteur relative px-8 py-20 md:px-20"
       style={{
         backgroundColor: "var(--color-primary)",
         color: "var(--color-accent-light)",
       }}
     >
-      {/* Ligne décorative or */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gold/40" />
+      {/* Thin top border */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gold/30" />
 
-      {/* GRID PRINCIPALE */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-14">
-        {/* COLONNE 1 : LOGO + CLAIM */}
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <img
-            src="/images/logo.png"
-            alt="Logo Food Coffee"
-            className="h-16 w-auto object-contain drop-shadow-lg"
-          />
+      {/* MAIN WRAPPER */}
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
+        {/* TOP SECTION : LOGO + NAV + CONTACT */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+          {/* BRAND */}
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <img
+              src="/images/logo.png"
+              alt="Food Coffee Logo"
+              className="h-14 w-auto object-contain opacity-90"
+            />
 
-          <h2 className="text-2xl font-semibold tracking-wide text-gold">
-            FOOD COFFEE
-          </h2>
-
-          <p className="text-sm opacity-80 text-center md:text-left max-w-xs leading-relaxed">
-            Traiteur haut de gamme & solutions culinaires pour entreprises,
-            campus et événements professionnels.
-          </p>
-        </div>
-
-        {/* COLONNE 2 : LIENS */}
-        <div className="flex flex-col items-center md:items-start gap-3 text-sm">
-          <h3 className="text-lg font-bold text-gold mb-1 tracking-wide">
-            Informations
-          </h3>
-
-          {[
-            "À propos",
-            "Mentions légales",
-            "Politique de confidentialité",
-            "Conditions d'utilisation",
-          ].map((link, i) => (
-            <p
-              key={i}
-              className="cursor-pointer hover:opacity-100 opacity-70 transition-all hover:translate-x-1"
-            >
-              {link}
+            <p className="text-sm opacity-75 max-w-xs leading-relaxed text-center md:text-left">
+              Premium catering services and culinary expertise dedicated to
+              corporate spaces, campuses, and professional events.
             </p>
-          ))}
-        </div>
-
-        {/* COLONNE 3 : CONTACT + RESEAUX */}
-        <div className="flex flex-col items-center md:items-end gap-4">
-          <h3 className="text-lg font-bold text-gold tracking-wide">Contact</h3>
-
-          <div className="text-sm opacity-85 text-center md:text-right space-y-1">
-            <p>SIRET : 00000000000000</p>
-            <p>Paris, France</p>
-            <p>Tél : 01 00 00 00 00</p>
-            <p>Email : contact@foodcoffee.com</p>
           </div>
 
-          {/* Réseaux sociaux */}
-          <div className="flex items-center gap-4 mt-4">
-            {[
-              { icon: "facebook", url: "#" },
-              { icon: "instagram", url: "#" },
-              { icon: "linkedin", url: "#" },
-            ].map((s, i) => (
-              <a
-                key={i}
-                href={s.url}
-                className="
-                  w-10 h-10 rounded-full 
-                  bg-white/10 hover:bg-white/20 
-                  flex items-center justify-center 
-                  text-gold hover:text-white 
-                  text-xl transition-all backdrop-blur-sm shadow-md
-                "
-              >
-                <i className={`bi bi-${s.icon}`} />
-              </a>
-            ))}
+          {/* NAVIGATION */}
+          <div className="flex flex-col items-center md:items-center gap-3 text-sm">
+            <h3 className="text-lg font-semibold text-gold mb-2 tracking-wide">
+              Company
+            </h3>
+
+            {["About us", "Legal notice", "Privacy policy", "Terms of use"].map(
+              (link, i) => (
+                <p
+                  key={i}
+                  className="cursor-pointer opacity-70 hover:opacity-100 transition-all"
+                >
+                  {link}
+                </p>
+              )
+            )}
+          </div>
+
+          {/* CONTACT INFO */}
+          <div className="flex flex-col items-center md:items-end gap-3 text-sm">
+            <h3 className="text-lg font-semibold text-gold mb-2 tracking-wide">
+              Contact
+            </h3>
+
+            <div className="opacity-80 text-center md:text-right space-y-1">
+              <p>SIRET: 00000000000000</p>
+              <p>Paris, France</p>
+              <p>Phone: 01 00 00 00 00</p>
+              <p>Email: contact@foodcoffee.com</p>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-4 mt-4">
+              {[
+                { icon: "facebook", url: "#" },
+                { icon: "instagram", url: "#" },
+                { icon: "linkedin", url: "#" },
+              ].map((s, i) => (
+                <a
+                  key={i}
+                  href={s.url}
+                  className="
+                    w-9 h-9 rounded-full 
+                    bg-white/10 hover:bg-white/20 
+                    flex items-center justify-center 
+                    text-gold hover:text-white 
+                    text-lg transition-all backdrop-blur-sm shadow-sm
+                  "
+                >
+                  <i className={`bi bi-${s.icon}`} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* SEPARATOR */}
-      <div className="w-full h-[1px] bg-gold/20 my-10" />
+        {/* SEPARATOR */}
+        <div className="w-full h-px bg-gold/20" />
 
-      {/* BAS DE FOOTER */}
-      <div className="text-center text-xs opacity-70 tracking-wide">
-        © {new Date().getFullYear()} FOOD COFFEE — Tous droits réservés.
+        {/* BOTTOM SECTION */}
+        <div className="text-center text-xs opacity-60 tracking-wide">
+          © {new Date().getFullYear()} FOOD COFFEE — All rights reserved.
+        </div>
       </div>
     </footer>
   );

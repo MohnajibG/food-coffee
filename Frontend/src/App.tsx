@@ -15,7 +15,7 @@ const App = () => {
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 flex">
+        <main className="flex-1 flex mt-36">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/traiteur" element={<Traiteur />} />

@@ -6,8 +6,8 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  horaires: string;
-  adresse: string;
+  hours: string;
+  address: string;
   menu: string;
   photos: Array<string | undefined>;
 }
@@ -16,8 +16,8 @@ const CampusModal: FC<ModalProps> = ({
   isOpen,
   onClose,
   title,
-  horaires,
-  adresse,
+  hours,
+  address,
   menu,
   photos,
 }) => {
@@ -46,8 +46,8 @@ const CampusModal: FC<ModalProps> = ({
             throw new Error("Function not implemented.");
           }}
           title={""}
-          horaires={""}
-          adresse={""}
+          hours={""}
+          address={""}
           menu={""}
         />
 
@@ -57,17 +57,17 @@ const CampusModal: FC<ModalProps> = ({
 
         <div className="space-y-4 text-gray-700 pb-6 text-lg flex-1">
           <p>
-            <span className="font-semibold">Horaires :</span>
+            <span className="font-semibold">Hours:</span>
             <br />
-            {horaires}
+            {hours}
           </p>
           <p>
-            <span className="font-semibold">Adresse :</span>
+            <span className="font-semibold">Address:</span>
             <br />
-            {adresse}
+            {address}
           </p>
           <p>
-            <span className="font-semibold">Menu du jour :</span>
+            <span className="font-semibold">Today's Menu:</span>
             <br />
             {menu}
           </p>
@@ -77,7 +77,7 @@ const CampusModal: FC<ModalProps> = ({
           to={`/order?campus=${encodeURIComponent(title)}`}
           className="mt-4 w-full bg-gold text-black font-semibold px-6 py-3 rounded-xl shadow-lg text-center hover:bg-white/90 transition"
         >
-          Commander
+          Order Now
         </Link>
       </div>
     </div>

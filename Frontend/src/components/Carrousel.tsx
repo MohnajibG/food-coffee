@@ -4,14 +4,13 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  horaires: string;
-  adresse: string;
+  hours: string;
+  address: string;
   menu: string;
   photos: Array<string | undefined>;
 }
 
 /* ========================= CAROUSEL ========================= */
-
 const Carousel: FC<{ photos: Array<string | undefined> }> = ({ photos }) => {
   const [index, setIndex] = useState(0);
 
@@ -21,10 +20,10 @@ const Carousel: FC<{ photos: Array<string | undefined> }> = ({ photos }) => {
       setIndex((prev) => (prev + 1) % photos.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [photos]);
 
   return (
-    <div className="relative w-full h-56 overflow-hidden rounded-xl shadow-lg mt-36">
+    <div className="relative w-full h-56 overflow-hidden rounded-xl shadow-lg mt-6">
       {photos.map((src, i) => (
         <img
           key={i}
@@ -41,7 +40,7 @@ const Carousel: FC<{ photos: Array<string | undefined> }> = ({ photos }) => {
           <div
             key={i}
             className={`w-2 h-2 rounded-full ${
-              i === index ? "bg-white" : "bg-white/40"
+              i === index ? "bg-(--color-accent)" : "bg-(--color-accent)/40"
             }`}
           />
         ))}
@@ -51,13 +50,12 @@ const Carousel: FC<{ photos: Array<string | undefined> }> = ({ photos }) => {
 };
 
 /* ========================= MODAL ========================= */
-
 const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
   title,
-  horaires,
-  adresse,
+  hours,
+  address,
   menu,
   photos,
 }) => {
@@ -65,29 +63,21 @@ const Modal: FC<ModalProps> = ({
 
   return (
     <div
-      className="
-        fixed inset-0 bg-black/50 backdrop-blur-sm 
-        flex items-center justify-center z-50 
-        max-md:items-end
-      "
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 max-md:items-end theme-traiteur"
       onClick={onClose}
     >
       <div
-        className="
-          bg-white shadow-2xl w-full max-w-lg p-6 relative 
-          md:rounded-2xl 
-          max-md:rounded-t-2xl max-md:h-[90vh] max-md:overflow-y-auto
-        "
+        className="bg-white shadow-2xl w-full max-w-lg p-6 relative md:rounded-2xl max-md:rounded-t-2xl max-md:h-[90vh] max-md:overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        {/* CLOSE BTN */}
+        {/* CLOSE BUTTON */}
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-black text-3xl"
           onClick={onClose}
-          aria-label="Fermer"
+          aria-label="Close"
         >
           ×
         </button>
@@ -97,32 +87,30 @@ const Modal: FC<ModalProps> = ({
 
         <h3
           id="modal-title"
-          className="text-3xl font-bold text-[#4a1f29] mt-6 mb-4"
+          className="text-3xl font-bold text-(--color-primary) mt-6 mb-4"
         >
           {title}
         </h3>
 
         <div className="space-y-4 text-gray-700 pb-10">
           <p>
-            <span className="font-semibold">Horaires :</span>
+            <span className="font-semibold">Opening Hours:</span>
             <br />
-            {horaires}
+            {hours}
           </p>
 
           <p>
-            <span className="font-semibold">Adresse :</span>
+            <span className="font-semibold">Address:</span>
             <br />
-            {adresse}
+            {address}
           </p>
 
           <p>
-            <span className="font-semibold">Menu du jour :</span>
+            <span className="font-semibold">Daily Menu:</span>
             <br />
             {menu}
           </p>
         </div>
-
-        {/* Removed Précommander link and related elements */}
       </div>
     </div>
   );
