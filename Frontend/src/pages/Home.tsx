@@ -1,91 +1,155 @@
 import { Link } from "react-router-dom";
+import { motion, type Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const fade: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 1 } },
+};
+
+const zoom: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 const Home = () => {
   return (
     <div className="flex flex-col w-full">
-      {/* ===================== HERO TRAITEUR ===================== */}
+      {/* ===================== HERO ===================== */}
       <section className="relative flex flex-col items-center justify-center text-center h-[90vh] w-full theme-traiteur overflow-hidden px-6">
-        {/* Theme-based gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary),var(--color-secondary))] animate-[pulse_8s_ease-in-out_infinite]" />
-
-        {/* Texture overlay */}
-        <div className="absolute inset-0 bg-[url('/images/texture-noise.png')] opacity-10 mix-blend-overlay" />
-
-        {/* Subtle glowing halo */}
-        <div className="absolute w-[600px] h-[600px] bg-gold/20 blur-[120px] rounded-full -top-20 opacity-40 animate-[float_12s_infinite_alternate]" />
-
-        {/* Logo */}
-        <img
-          src="/images/logo.png"
-          alt="Food Coffee Logo"
-          className="relative z-10 h-50 w-auto object-contain mb-6 rounded-lg opacity-0 animate-[fadeIn_1.6s_ease-out_forwards]"
+        {/* BG Anim */}
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary),var(--color-secondary))]"
+          animate={{ opacity: [0.8, 1, 0.8] }}
+          transition={{ duration: 8, repeat: Infinity }}
         />
 
-        {/* Main title */}
-        <h1
-          className="relative z-10 text-5xl md:text-7xl font-serif mb-4 opacity-0 animate-[fadeUp_1.8s_ease-out_forwards] drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
+        <div className="absolute inset-0 bg-[url('/images/texture-noise.png')] opacity-90 mix-blend-overlay" />
+
+        <motion.div
+          className="absolute w-[600px] h-[600px] bg-gold/90 blur-[120px] rounded-full -top-20 opacity-40"
+          animate={{ y: [-20, 20] }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: [0.4, 0, 0.2, 1],
+          }}
+        />
+
+        {/* Logo */}
+        <motion.img
+          src="/images/logo.png"
+          alt="Food Coffee Logo"
+          className="relative z-10 h-128 w-auto object-contain mb-6 rounded-lg"
+          variants={fade}
+          initial="hidden"
+          animate="show"
+        />
+
+        {/* Title */}
+        <motion.h1
+          className="relative z-10 text-5xl md:text-7xl font-serif mb-4 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-accent)" }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
         >
           FOOD & COFFEE
-        </h1>
+        </motion.h1>
 
         {/* Subtitle */}
-        <p
-          className="relative z-10 max-w-xl text-lg md:text-xl opacity-0 animate-[floatSoft_6s_ease-in-out_infinite]"
+        <motion.p
+          className="relative z-10 max-w-xl text-lg md:text-xl"
           style={{ color: "var(--color-lightGold)" }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           Catering & Cafeterias.
-        </p>
-
-        {/* CTA Placeholder */}
-        <div className="relative z-10 flex gap-4 mt-8 flex-wrap opacity-0 animate-[fadeIn_2.6s_ease-out_forwards]" />
+        </motion.p>
       </section>
 
-      {/* ===================== CATERING / CAFÉ BLOCKS ===================== */}
-      <section className="flex flex-col md:flex-row w-full gap-6 px-6 md:px-16 py-16">
-        {/* ===== CATERING BLOCK ===== */}
-        <Link to="/traiteur" className="flex-1">
-          <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
-            <img
-              src="/images/traiteur.jpg"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-[rgba(74,31,41,0.45)] backdrop-blur-sm" />
-            <div className="absolute bottom-8 left-6 flex flex-col">
-              <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-2 drop-shadow-lg">
-                Catering
-              </h2>
-              <span className="text-white font-semibold">Discover</span>
-              <button className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold hover:scale-105 transition">
-                Learn More
-              </button>
-            </div>
-          </div>
-        </Link>
+      {/* ===================== BLOCKS ===================== */}
+      <motion.section
+        className="flex flex-col md:flex-row w-full gap-6 px-6 md:px-16 py-16"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* ===== CATERING ===== */}
+        <motion.div variants={zoom} className="flex-1">
+          <Link to="/traiteur">
+            <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
+              <motion.img
+                src="/images/traiteur.jpg"
+                className="w-full h-full object-cover  backdrop-blur-sm"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <div className="absolute inset-0 bg-[rgba(74,31,41,0.45)]" />
+              <div className="absolute bottom-8 left-6 flex flex-col">
+                <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-2 drop-shadow-lg">
+                  Catering
+                </h2>
+                <span className="text-white font-semibold">Discover</span>
 
-        {/* ===== CAFÉ BLOCK ===== */}
-        <Link to="/cafeterias" className="flex-1">
-          <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
-            <img
-              src="/images/cafeteria.jpg"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-[rgba(92,58,33,0.45)] backdrop-blur-sm" />
-            <div className="absolute bottom-8 right-6 flex flex-col">
-              <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-2 drop-shadow-lg">
-                Our Cafeterias
-              </h2>
-              <span className="text-white font-semibold">Order Now</span>
-              <button className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold hover:scale-105 transition">
-                See More
-              </button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold"
+                >
+                  Learn More
+                </motion.button>
+              </div>
             </div>
-          </div>
-        </Link>
-      </section>
+          </Link>
+        </motion.div>
+
+        {/* ===== CAFETERIAS ===== */}
+        <motion.div variants={zoom} className="flex-1">
+          <Link to="/cafeterias">
+            <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
+              <motion.img
+                src="/images/cafeteria.jpg"
+                className="w-full h-full object-cover hover:backdrop-blur-sm"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <div className="absolute inset-0 bg-[rgba(92,58,33,0.45)] " />
+              <div className="absolute bottom-8 right-6 flex flex-col">
+                <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-2 drop-shadow-lg">
+                  Our Cafeterias
+                </h2>
+                <span className="text-white font-semibold">Order Now</span>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold"
+                >
+                  See More
+                </motion.button>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+      </motion.section>
 
       {/* ===================== CTA END ===================== */}
-      <section className="flex flex-col items-center justify-center text-center py-24 px-6 theme-traiteur bg-(--color-secondary-green) relative overflow-hidden">
+      <motion.section className="flex flex-col items-center justify-center text-center py-24 px-6 theme-traiteur bg-(--color-secondary-green) relative overflow-hidden">
         {/* Glowing halo */}
         <div className="absolute w-[700px] h-[700px] bg-gold/20 blur-[160px] rounded-full -top-32 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 rotate-12 pointer-events-none" />
@@ -106,7 +170,7 @@ const Home = () => {
         >
           Contact Us
         </Link>
-      </section>
+      </motion.section>
     </div>
   );
 };

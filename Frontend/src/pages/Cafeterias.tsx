@@ -61,12 +61,15 @@ const Cafeterias: FC = () => {
       />
 
       {/* CAMPUS GRID */}
-      <section className="relative bg-gold/10 w-full py-24 px-6 md:px-16">
-        <h3 className="text-center text-6xl font-extralight text-gold mb-16">
+      <section
+        className="relative md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur
+ "
+      >
+        <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
           Our Campuses
-        </h3>
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
           {campusData.map((c) => (
             <CampusCard
               key={c.title}

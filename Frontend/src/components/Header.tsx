@@ -51,7 +51,7 @@ const Header = () => {
           <img
             src="/images/logo.png"
             alt="Food Coffee Logo"
-            className="h-18 w-auto object-contain rounded-sm"
+            className="h-32 w-auto object-contain rounded-sm"
           />
         </div>
 

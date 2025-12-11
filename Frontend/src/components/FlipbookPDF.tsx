@@ -84,13 +84,13 @@ export default function FlipbookPDF() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-(--color-bg) py-20 px-4 flex justify-center theme-traiteur">
+    <section className="min-h-screen w-full  py-10 px-4 flex justify-center theme-traiteur">
       <div
         ref={ref}
-        className="w-full max-w-6xl mx-auto flex flex-col items-center relative"
+        className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center relative"
       >
         {/* Cadre premium */}
-        <div className="absolute inset-0 mx-auto max-w-4xl -z-10 bg-linear-to-b from-white to-lightGold rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.07)]" />
+        <div className="absolute inset-0 mx-auto max-w-4xl -z-10 rounded-3xl" />
 
         {/* FLIPBOOK */}
         {blobUrl ? (
@@ -106,7 +106,7 @@ export default function FlipbookPDF() {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="flex justify-center gap-6 perspective-1000 p-10"
+                className="flex justify-center gap-6 perspective-1000 p-4 rounded-3xl"
               >
                 <div className="rounded-xl overflow-hidden bg-white shadow-lg">
                   <Page
@@ -140,19 +140,19 @@ export default function FlipbookPDF() {
             <button
               onClick={prev}
               disabled={page <= 1}
-              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-semibold shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
+              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-extralight shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
             >
               ← Previous Page
             </button>
 
-            <span className="text-(--color-primary) font-semibold tracking-wide">
+            <span className="text-(--color-primary) font-extralight tracking-wide">
               {page} / {numPages}
             </span>
 
             <button
               onClick={next}
               disabled={page >= numPages}
-              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-semibold shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
+              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-extralight shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
             >
               Next Page →
             </button>
@@ -160,7 +160,7 @@ export default function FlipbookPDF() {
             <a
               href={PDF_PATH}
               download
-              className="px-6 py-3 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold shadow-lg hover:bg-(--color-secondary-green) transition"
+              className="px-6 py-3 rounded-full bg-(--color-accent) text-(--color-bg) font-extralight shadow-lg hover:bg-(--color-secondary-green) transition"
             >
               Download PDF
             </a>

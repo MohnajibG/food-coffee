@@ -21,9 +21,9 @@ const Catalogue: FC = () => {
   return (
     <section
       id="catalogue"
-      className="md:px-16 bg-(--color-accent) bg-opacity-10 py-24 theme-traiteur"
+      className="md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur"
     >
-      <h2 className="text-center text-7xl font-extralight text-(--color-accent) my-24">
+      <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
         FOOD & COFFEE Catalogue
       </h2>
       <div className="w-full flex justify-center">
@@ -45,56 +45,56 @@ const Formulaire: FC = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green) bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
-      <h2 className="text-center text-6xl md:text-8xl font-extrabold text-(--color-accent) mb-12 drop-shadow-xl">
+    <section className="flex flex-col items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green)/80 bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
+      <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
         Request a Quote
       </h2>
 
       <form
         ref={formRef}
         onSubmit={sendEmail}
-        className="w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-white bg-opacity-10 shadow-lg"
+        className="w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-amber-50 bg-opacity-10 shadow-lg"
       >
         <input
           name="company"
           placeholder="Company Name"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2 bg-white"
         />
         <input
           name="name"
           placeholder="Full Name"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2  bg-white"
         />
 
         <input
           name="phone"
           placeholder="Phone"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2  bg-white"
         />
         <input
           name="address"
           placeholder="Delivery Address"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2  bg-white"
         />
         <input
           type="date"
           name="date"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2  bg-white"
         />
         <input
           type="number"
           name="people"
           placeholder="Number of People"
-          className="inputModern col-span-2 bg-amber-50"
+          className="inputModern col-span-2  bg-white"
         />
         <textarea
           name="message"
           placeholder="Message / Specific Needs"
-          className="inputModern col-span-2 bg-amber-50 h-32"
+          className="inputModern col-span-2  bg-white h-32"
         />
         <button
           type="submit"
-          className="mt-6 col-span-2 bg-(--color-accent) text-(--color-bg) py-3 rounded-xl text-xl font-semibold shadow-lg hover:scale-105 transition-transform"
+          className="mt-6 col-span-2 bg-(--color-accent) text-(--color-bg) py-3 rounded-xl text-xl font-extralight shadow-lg hover:scale-105 transition-transform"
         >
           Send Request
         </button>
