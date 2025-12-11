@@ -209,6 +209,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudinary/html@npm:^1.13.4":
+  version: 1.13.4
+  resolution: "@cloudinary/html@npm:1.13.4"
+  dependencies:
+    "@types/lodash.clonedeep": ^4.5.6
+    "@types/lodash.debounce": ^4.0.6
+    "@types/node": ^14.14.10
+    lodash.clonedeep: ^4.5.0
+    lodash.debounce: ^4.0.8
+    typescript: ^4.1.2
+  checksum: b37069e1b7b840561ab50f289fe697c6e42480ddd917ed840b95fa392a605828633a9a373da2b77bd399acfa0e75793190351f89f30fb1b0d00c1f2473055d66
+  languageName: node
+  linkType: hard
+
+"@cloudinary/react@npm:^1.14.3":
+  version: 1.14.3
+  resolution: "@cloudinary/react@npm:1.14.3"
+  dependencies:
+    "@cloudinary/html": ^1.13.4
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 0263ad9879eda8ea2cb4be6c643ae32c6a997285b9038958078cf4aab6b1be24b273c2e5bee01426753f3467ee30e35880991a73c70959aa08b3f252a53c8505
+  languageName: node
+  linkType: hard
+
+"@cloudinary/transformation-builder-sdk@npm:^1.15.1":
+  version: 1.21.2
+  resolution: "@cloudinary/transformation-builder-sdk@npm:1.21.2"
+  dependencies:
+    "@cloudinary/url-gen": ^1.7.0
+  checksum: 6569fc60aa821aa91983e3b51f4b4b4005a6089bd19bbb5ef74772352e9f1028175cc67346bbf519dc207801dff83babc891666a92288d4606be90012c988429
+  languageName: node
+  linkType: hard
+
+"@cloudinary/url-gen@npm:^1.22.0, @cloudinary/url-gen@npm:^1.7.0":
+  version: 1.22.0
+  resolution: "@cloudinary/url-gen@npm:1.22.0"
+  dependencies:
+    "@cloudinary/transformation-builder-sdk": ^1.15.1
+  checksum: 4553a84f09434c2294b075c87133c3e0b448297e7d5021b3668a026fd04916f5f6efe490d87e1d9ec26ffba54562671642c62d844da0859f4d8541ea221e7680
+  languageName: node
+  linkType: hard
+
 "@emailjs/browser@npm:^4.4.1":
   version: 4.4.1
   resolution: "@emailjs/browser@npm:4.4.1"
@@ -1195,6 +1238,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.clonedeep@npm:^4.5.6":
+  version: 4.5.9
+  resolution: "@types/lodash.clonedeep@npm:4.5.9"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: ef85512b7dce7a4f981a818ae44d11982907e1f26b5b26bedf0957c35e8591eb8e1d24fa31ca851d4b40e0a1ee88563853d762412691fe5f357e8335cead2325
+  languageName: node
+  linkType: hard
+
+"@types/lodash.debounce@npm:^4.0.6":
+  version: 4.0.9
+  resolution: "@types/lodash.debounce@npm:4.0.9"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 8183a152e01928e3b97ca773f6ae6038b8695e76493ba8bf6b743ec143948a62294fbc9d49fa4a78b52265b3ba4892ef57534e0c13d04aa0f111671b5a944feb
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.17.21
+  resolution: "@types/lodash@npm:4.17.21"
+  checksum: e09e3eaf29b18b6c8e130fcbafd8e3c4ecc2110f35255079245e7d1bd310a5a8f93e4e70266533dce672f253bba899c721bc6870097e0a8c5448e0b628136d39
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.14.10":
+  version: 14.18.63
+  resolution: "@types/node@npm:14.18.63"
+  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^24.10.0":
   version: 24.10.1
   resolution: "@types/node@npm:24.10.1"
@@ -2082,6 +2157,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "foodcoffee-frontend@workspace:."
   dependencies:
+    "@cloudinary/react": ^1.14.3
+    "@cloudinary/url-gen": ^1.22.0
     "@emailjs/browser": ^4.4.1
     "@eslint/js": ^9.39.1
     "@tailwindcss/vite": ^4.1.17
@@ -2608,6 +2685,20 @@ __metadata:
   dependencies:
     p-locate: ^5.0.0
   checksum: 72eb661788a0368c099a184c59d2fee760b3831c9c1c33955e8a19ae4a21b4116e53fa736dc086cdeb9fce9f7cc508f2f92d2d3aae516f133e16a2bb59a39f5a
+  languageName: node
+  linkType: hard
+
+"lodash.clonedeep@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.clonedeep@npm:4.5.0"
+  checksum: 92c46f094b064e876a23c97f57f81fbffd5d760bf2d8a1c61d85db6d1e488c66b0384c943abee4f6af7debf5ad4e4282e74ff83177c9e63d8ff081a4837c3489
+  languageName: node
+  linkType: hard
+
+"lodash.debounce@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "lodash.debounce@npm:4.0.8"
+  checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
   languageName: node
   linkType: hard
 
@@ -3540,6 +3631,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^4.1.2":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
+  languageName: node
+  linkType: hard
+
 "typescript@npm:~5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
@@ -3547,6 +3648,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 0d0ffb84f2cd072c3e164c79a2e5a1a1f4f168e84cb2882ff8967b92afe1def6c2a91f6838fb58b168428f9458c57a2ba06a6737711fdd87a256bbe83e9a217f
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.1.2#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=a1c5e5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2eee5c37cad4390385db5db5a8e81470e42e8f1401b0358d7390095d6f681b410f2c4a0c496c6ff9ebd775423c7785cdace7bcdad76c7bee283df3d9718c0f20
   languageName: node
   linkType: hard
 

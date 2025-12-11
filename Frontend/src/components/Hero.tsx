@@ -29,7 +29,7 @@ const Hero: FC<HeroProps> = ({
   }, [heroPhotos.length, interval]);
 
   return (
-    <section className={`relative w-full overflow-hidden ${className}`}>
+    <section className={`relative w-full h-[80%] overflow-hidden ${className}`}>
       {heroPhotos.map((src, i) => (
         <img
           key={i}

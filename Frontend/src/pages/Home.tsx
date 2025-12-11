@@ -36,7 +36,7 @@ const Home = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="absolute inset-0 bg-[url('/images/texture-noise.png')] opacity-90 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
 
         <motion.div
           className="absolute w-[600px] h-[600px] bg-gold/90 blur-[120px] rounded-full -top-20 opacity-40"
@@ -49,6 +49,7 @@ const Home = () => {
         />
 
         {/* Logo */}
+
         <motion.img
           src="/images/logo.png"
           alt="Food Coffee Logo"
@@ -60,7 +61,7 @@ const Home = () => {
 
         {/* Title */}
         <motion.h1
-          className="relative z-10 text-5xl md:text-7xl font-serif mb-4 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
+          className="relative z-10 text-5xl md:text-8xl font-serif mb-4 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-accent)" }}
           variants={fadeUp}
           initial="hidden"
@@ -71,7 +72,7 @@ const Home = () => {
 
         {/* Subtitle */}
         <motion.p
-          className="relative z-10 max-w-xl text-lg md:text-xl"
+          className="relative z-10 max-w-xl text-lg md:text-xl font-light drop-shadow-[0_0_15px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-lightGold)" }}
           variants={fadeUp}
           initial="hidden"
@@ -94,7 +95,8 @@ const Home = () => {
           <Link to="/traiteur">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="/images/traiteur.jpg"
+                src="https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486167/traiteur_qccu3j.webp"
+                alt="Traiteur"
                 className="w-full h-full object-cover  backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -109,7 +111,7 @@ const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold"
+                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-extralight"
                 >
                   Learn More
                 </motion.button>
@@ -123,7 +125,7 @@ const Home = () => {
           <Link to="/cafeterias">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="/images/cafeteria.jpg"
+                src="https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486160/cafeteria_dozyx7.webp"
                 className="w-full h-full object-cover hover:backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -138,7 +140,7 @@ const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-semibold"
+                  className="mt-4 px-6 py-2 rounded-full bg-(--color-accent) text-(--color-bg) font-extralight"
                 >
                   See More
                 </motion.button>

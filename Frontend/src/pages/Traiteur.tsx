@@ -8,10 +8,10 @@ import Hero from "../components/Hero"; // ✅ Import Hero générique
    HERO DATA
 ============================================================ */
 const heroPhotos = [
-  "/images/traiteur/hero1.jpg",
-  "/images/traiteur/hero2.jpg",
-  "/images/traiteur/hero3.jpg",
-  "/images/traiteur/hero4.jpg",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486165/hero4_tsk65z.webp",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486164/hero3_brtnh4.webp",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486163/hero2_qp11zx.webp",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765475065/cld-sample-4.jpg",
 ];
 
 /* ============================================================

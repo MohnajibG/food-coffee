@@ -4,15 +4,15 @@ import emailjs from "@emailjs/browser";
 import Hero from "../components/Hero";
 
 const heroPhotos = [
-  "/images/traiteur/hero1.jpg",
-  "/images/traiteur/hero2.jpg",
-  "/images/traiteur/hero3.jpg",
-  "/images/traiteur/hero4.jpg",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765488273/main-de-femme-ajoutant-l-assaisonnement-sur-les-spaghettis_l5ykei.jpg",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765488809/photo-degateau_z356hg.webp",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765488807/femme-affaires-ordinateur-portable-smartphone-cafe_bl3nup.webp",
+  "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765488808/triste-froncer-sourcils-jeune-femme-utilisation-telephone-portable-dans-cafe_alr5gu.webp",
 ];
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function Contact(): JSX.Element {
+const Contact = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -68,10 +68,7 @@ export default function Contact(): JSX.Element {
   };
 
   return (
-    <main
-      className="min-h-screen w-full theme-traiteur flex flex-col items-center justify-center  "
-      style={{ backgroundColor: "var(--color-bg)", color: "var(--color-text)" }}
-    >
+    <main className="min-h-screen w-full theme-traiteur flex flex-col items-center justify-center  ">
       {/* HERO */}
 
       <Hero
@@ -79,7 +76,7 @@ export default function Contact(): JSX.Element {
         title={
           <>
             Contact
-            <span className="block md:text-4xl text-gold text-center">
+            <span className="block md:text-4xl  text-gold text-center mt-6">
               Fill out the form below and we will get back to you within 48
               business hours.
             </span>
@@ -89,7 +86,10 @@ export default function Contact(): JSX.Element {
       />
 
       {/* FORM SECTION */}
-      <section className="w-full max-w-4xl bg-[var(--color-primary)/10] backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10 my-24">
+      <section
+        className="w-full max-w-4xl backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10 my-24 md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur
+"
+      >
         <form
           ref={formRef}
           onSubmit={sendEmail}
@@ -197,4 +197,6 @@ export default function Contact(): JSX.Element {
       </section>
     </main>
   );
-}
+};
+
+export default Contact;

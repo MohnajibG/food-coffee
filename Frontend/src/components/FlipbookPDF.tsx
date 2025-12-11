@@ -7,7 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const PDF_PATH = "/documents/FOOD&COFFEE.pdf";
 
-export default function FlipbookPDF() {
+const FlipbookPDF = () => {
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [numPages, setNumPages] = useState(0);
   const [page, setPage] = useState(1);
@@ -169,4 +169,5 @@ export default function FlipbookPDF() {
       </div>
     </section>
   );
-}
+};
+export default FlipbookPDF;
