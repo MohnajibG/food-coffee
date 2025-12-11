@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="flex flex-col w-full">
       {/* ===================== HERO ===================== */}
-      <section className="relative flex flex-col items-center justify-center text-center h-[90vh] w-full theme-traiteur overflow-hidden px-6">
+      <section className="relative flex flex-col items-center justify-center text-center h-[50%] w-full theme-traiteur overflow-hidden px-6 pb-30">
         {/* BG Anim */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary),var(--color-secondary))]"
@@ -61,7 +61,7 @@ const Home = () => {
 
         {/* Title */}
         <motion.h1
-          className="relative z-10 text-5xl md:text-8xl font-serif mb-4 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
+          className="relative z-10 text-5xl md:text-8xl font-serif mb-6 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-accent)" }}
           variants={fadeUp}
           initial="hidden"
@@ -85,7 +85,7 @@ const Home = () => {
 
       {/* ===================== BLOCKS ===================== */}
       <motion.section
-        className="flex flex-col md:flex-row w-full gap-6 px-6 md:px-16 py-16"
+        className="flex flex-col md:flex-row w-full gap-6 px-6 md:px-16 py-56"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -151,7 +151,7 @@ const Home = () => {
       </motion.section>
 
       {/* ===================== CTA END ===================== */}
-      <motion.section className="flex flex-col items-center justify-center text-center py-24 px-6 theme-traiteur bg-(--color-secondary-green) relative overflow-hidden">
+      <motion.section className="flex flex-col  items-center justify-center text-center py-54 px-6 theme-traiteur bg-(--color-secondary-green) relative overflow-hidden ">
         {/* Glowing halo */}
         <div className="absolute w-[700px] h-[700px] bg-gold/20 blur-[160px] rounded-full -top-32 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 rotate-12 pointer-events-none" />
@@ -168,7 +168,15 @@ const Home = () => {
 
         <Link
           to="/contact"
-          className="relative mt-12 px-12 py-4 rounded-full text-xl font-semibold overflow-hidden bg-(--color-accent) text-(--color-bg) shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-110 before:absolute before:inset-0 before:bg-white/20 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-white/10 after:transition-all after:duration-500 hover:after:w-full opacity-0 animate-[fadeUp_2s_ease-out_forwards]"
+          className="
+    flex items-center justify-center
+    mt-12 px-18 py-4 
+    rounded-full text-lg font-extralight
+    bg-(--color-accent) text-(--color-bg)
+    shadow-lg transition-transform duration-300 
+    hover:scale-110
+    animate-fadeUp
+  "
         >
           Contact Us
         </Link>
