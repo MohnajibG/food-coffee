@@ -37,11 +37,11 @@ const Header = () => {
         style={headerStyle}
       >
         {/* LEFT — BURGER + LOGO */}
-        <div className="flex items-center gap-6">
+        <div className="flex justify-between items-center w-full">
           {/* BURGER MOBILE */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden text-3xl"
+            className="md:hidden text-3xl mx-5"
             style={{ color: "var(--color-text)" }}
           >
             <FiMenu />
@@ -51,7 +51,7 @@ const Header = () => {
           <img
             src="/images/logo.png"
             alt="Food Coffee Logo"
-            className="h-14 w-auto object-contain rounded-sm"
+            className="h-18 w-auto object-contain rounded-sm"
           />
         </div>
 
