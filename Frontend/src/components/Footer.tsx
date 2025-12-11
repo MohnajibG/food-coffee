@@ -15,22 +15,22 @@ const Footer = () => {
         {/* TOP SECTION : LOGO + NAV + CONTACT */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
           {/* BRAND */}
-          <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex flex-col items-center  gap-4">
             <img
               src="/images/logo.png"
               alt="Food Coffee Logo"
-              className="h-14 w-auto object-contain opacity-90"
+              className="h-34 w-auto object-contain opacity-90"
             />
 
-            <p className="text-sm opacity-75 max-w-xs leading-relaxed text-center md:text-left">
+            <p className="text-sm opacity-75 max-w-xs leading-relaxed text-center md:text-justify">
               Premium catering services and culinary expertise dedicated to
               corporate spaces, campuses, and professional events.
             </p>
           </div>
 
           {/* NAVIGATION */}
-          <div className="flex flex-col items-center md:items-center gap-3 text-sm">
-            <h3 className="text-lg font-semibold text-gold mb-2 tracking-wide">
+          <div className="flex flex-col items-center md:items-start md:ml-24 gap-3 text-sm">
+            <h3 className="text-xl font-semibold text-gold mb-2 tracking-wide">
               Company
             </h3>
 
@@ -48,7 +48,7 @@ const Footer = () => {
 
           {/* CONTACT INFO */}
           <div className="flex flex-col items-center md:items-end gap-3 text-sm">
-            <h3 className="text-lg font-semibold text-gold mb-2 tracking-wide">
+            <h3 className="text-xl font-semibold text-gold mb-2 tracking-wide">
               Contact
             </h3>
 

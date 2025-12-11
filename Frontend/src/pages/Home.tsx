@@ -151,7 +151,11 @@ const Home = () => {
       </motion.section>
 
       {/* ===================== CTA END ===================== */}
-      <motion.section className="flex flex-col  items-center justify-center text-center py-54 px-6 theme-traiteur bg-(--color-secondary-green) relative overflow-hidden ">
+      <motion.section
+        className="flex flex-col  items-center justify-center text-center py-54 px-6 theme-traiteur 
+      bg-[radial-gradient(ellipse_at_center,var(--color-secondary-green),var(--color-secondary-green-light))]
+       relative overflow-hidden "
+      >
         {/* Glowing halo */}
         <div className="absolute w-[700px] h-[700px] bg-gold/20 blur-[160px] rounded-full -top-32 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 rotate-12 pointer-events-none" />
