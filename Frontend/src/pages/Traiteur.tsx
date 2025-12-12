@@ -24,7 +24,9 @@ const Catalogue: FC = () => {
       className="md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur"
     >
       <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
-        FOOD & COFFEE Catalogue
+        FOOD <br />&<br /> COFFEE <br />
+        <br />
+        Catalogue
       </h2>
       <div className="w-full flex justify-center">
         <FlipbookPDF />
@@ -45,15 +47,15 @@ const Formulaire: FC = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green)/80 bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
-      <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
+    <section className="flex flex-col w-[100wv] items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green)/80 bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
+      <h2 className="text-center text-4xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
         Request a Quote
       </h2>
 
       <form
         ref={formRef}
         onSubmit={sendEmail}
-        className="w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-amber-50 bg-opacity-10 shadow-lg"
+        className=" w-[90%] md:w-[60%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-amber-50 bg-opacity-10 shadow-lg"
       >
         <input
           name="company"
@@ -113,12 +115,9 @@ const Traiteur: FC = () => {
       <Hero
         heroPhotos={heroPhotos}
         title={
-          <>
-            Catering
-            <span className="block mt-3 md:text-9xl text-gold">
-              FOOD <br />& <br /> COFFEE
-            </span>
-          </>
+          <span className="block mt-3 md:text-9xl text-gold">
+            FOOD <br />& <br /> COFFEE
+          </span>
         }
         subtitle="A culinary experience designed for companies and institutions."
         interval={5000} // durée du slideshow

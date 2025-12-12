@@ -12,8 +12,19 @@ const FlipbookPDF = () => {
   const [numPages, setNumPages] = useState(0);
   const [page, setPage] = useState(1);
   const [width, setWidth] = useState(900);
+  const [isMobile, setIsMobile] = useState(false);
+
   const ref = useRef<HTMLDivElement | null>(null);
 
+  // Detect mobile / desktop
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 768);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Responsive width
   useEffect(() => {
     if (!ref.current) return;
     const obs = new ResizeObserver((entries) => {
@@ -24,6 +35,7 @@ const FlipbookPDF = () => {
     return () => obs.disconnect();
   }, []);
 
+  // Load PDF blob
   useEffect(() => {
     let stop = false;
     let obj: string | null = null;
@@ -42,20 +54,21 @@ const FlipbookPDF = () => {
     };
   }, []);
 
+  // Navigation
   const next = useCallback(() => {
-    setPage((p) => Math.min(numPages, p + 2));
-  }, [numPages]);
+    setPage((p) => Math.min(numPages, p + (isMobile ? 1 : 2)));
+  }, [numPages, isMobile]);
 
   const prev = useCallback(() => {
-    setPage((p) => Math.max(1, p - 2));
-  }, []);
+    setPage((p) => Math.max(1, p - (isMobile ? 1 : 2)));
+  }, [isMobile]);
 
   const onDocLoadSuccess = ({ numPages }: { numPages: number }) => {
     setNumPages(numPages);
     setPage(1);
   };
 
-  const spread = Math.floor(width / 2) - 20;
+  const spread = isMobile ? width - 40 : Math.floor(width / 2) - 20;
 
   const pageTurn = {
     initial: {
@@ -84,15 +97,12 @@ const FlipbookPDF = () => {
   };
 
   return (
-    <section className="min-h-screen w-full  py-10 px-4 flex justify-center theme-traiteur">
+    <section className="min-h-screen w-full py-10 px-4 flex justify-center theme-traiteur">
       <div
         ref={ref}
-        className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center relative"
+        className="w-full max-w-8xl mx-auto flex flex-col items-center justify-center relative"
       >
-        {/* Cadre premium */}
-        <div className="absolute inset-0 mx-auto max-w-4xl -z-10 rounded-3xl" />
-
-        {/* FLIPBOOK */}
+        {/* Flipbook */}
         {blobUrl ? (
           <Document
             file={blobUrl}
@@ -106,8 +116,9 @@ const FlipbookPDF = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="flex justify-center gap-6 perspective-1000 p-4 rounded-3xl"
+                className="flex justify-center gap-6 p-4 rounded-3xl"
               >
+                {/* Left page (mobile = single page) */}
                 <div className="rounded-xl overflow-hidden bg-white shadow-lg">
                   <Page
                     pageNumber={page}
@@ -117,7 +128,8 @@ const FlipbookPDF = () => {
                   />
                 </div>
 
-                {page + 1 <= numPages && (
+                {/* Right page (DESKTOP ONLY) */}
+                {!isMobile && page + 1 <= numPages && (
                   <div className="rounded-xl overflow-hidden bg-white shadow-lg">
                     <Page
                       pageNumber={page + 1}
@@ -134,40 +146,42 @@ const FlipbookPDF = () => {
           <div className="text-gray-600 mt-10">Loading…</div>
         )}
 
-        {/* NAVIGATION */}
+        {/* Navigation */}
         {numPages > 0 && (
-          <div className="flex flex-wrap items-center gap-4 mt-10 justify-center">
-            <button
-              onClick={prev}
-              disabled={page <= 1}
-              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-extralight shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
-            >
-              ← Previous Page
-            </button>
+          <>
+            <div className="flex  items-center gap-4 mt-10 justify-center">
+              <button
+                onClick={prev}
+                disabled={page <= 1}
+                className="px-2 py-3  w-40 rounded-full bg-(--color-secondary-green) text-white shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
+              >
+                ← Previous
+              </button>
 
-            <span className="text-(--color-primary) font-extralight tracking-wide">
-              {page} / {numPages}
-            </span>
+              <span className="flex flex-row text-(--color-primary) text-xs tracking-wide">
+                {page} / {numPages}
+              </span>
 
-            <button
-              onClick={next}
-              disabled={page >= numPages}
-              className="px-6 py-3 rounded-full bg-(--color-secondary-green) text-white font-extralight shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
-            >
-              Next Page →
-            </button>
-
+              <button
+                onClick={next}
+                disabled={page >= numPages}
+                className="px-2 py-3  w-40 rounded-full bg-(--color-secondary-green) text-white shadow-md hover:bg-(--color-secondary-green-light) transition disabled:opacity-40"
+              >
+                Next →
+              </button>
+            </div>
             <a
               href={PDF_PATH}
               download
-              className="px-6 py-3 rounded-full bg-(--color-accent) text-(--color-bg) font-extralight shadow-lg hover:bg-(--color-secondary-green) transition"
+              className="px-6 py-3 mt-4 rounded-full bg-(--color-accent) text-(--color-bg) shadow-lg hover:bg-(--color-secondary-green) transition"
             >
               Download PDF
             </a>
-          </div>
+          </>
         )}
       </div>
     </section>
   );
 };
+
 export default FlipbookPDF;

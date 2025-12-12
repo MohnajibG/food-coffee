@@ -50,12 +50,9 @@ const Cafeterias: FC = () => {
       <Hero
         heroPhotos={heroPhotos}
         title={
-          <>
-            Cafeterias
-            <span className="block md:text-9xl text-gold">
-              FOOD <br />& <br /> COFFEE
-            </span>
-          </>
+          <span className="block md:text-9xl text-gold">
+            FOOD <br />& <br /> COFFEE
+          </span>
         }
         subtitle="A space designed for your gourmet breaks."
       />
@@ -66,7 +63,9 @@ const Cafeterias: FC = () => {
  "
       >
         <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
-          Our Campuses
+          FOOD <br />&<br /> COFFEE <br />
+          <br />
+          Campuses
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
