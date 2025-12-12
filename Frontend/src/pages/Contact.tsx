@@ -70,7 +70,7 @@ const Contact = (): JSX.Element => {
   };
 
   return (
-    <main className="min-h-screen w-full theme-traiteur flex flex-col items-center justify-center  ">
+    <main className="min-h-screen w-full theme-traiteur  ">
       {/* HERO */}
 
       <Hero
@@ -84,11 +84,11 @@ const Contact = (): JSX.Element => {
         hours."
         interval={5000} // durée du slideshow
       />
-      <span className="block md:text-4xl  text-gold text-center mt-6"></span>
+      <span className="block md:text-4xl  text-gold text-center "></span>
 
       {/* FORM SECTION */}
       <section
-        className="w-full max-w-full backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10 my-24 md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur
+        className="w-full max-w-full backdrop-blur-xl  shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10  bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur
 "
       >
         <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
