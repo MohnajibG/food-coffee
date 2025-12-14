@@ -1,183 +1,193 @@
 {
-  "plats_chauds": [
+  "hot_dishes": [
     {
-      "nom": "Pâtes Bolognaise",
-      "prix": 6.5,
-      "description": "Pâtes fraîches, sauce tomate maison, viande hachée.",
-      "photos": ["/images/cafeteria/plats/bolognaise.jpg"]
+      "name": "Spaghetti Bolognese",
+      "price": 6.5,
+      "description": "Fresh pasta, homemade tomato sauce, minced meat.",
+      "photos": [
+        "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765726144/des-spaghettis-avec-des-boulettes-de-viande-sur-une-table-en-bois_tadwus.jpg"
+      ]
     },
     {
-      "nom": "Pâtes Carbonara",
-      "prix": 6.5,
-      "description": "Crème, parmesan, lardons halal.",
-      "photos": ["/images/cafeteria/plats/carbonara.jpg"]
+      "name": "Spaghetti Carbonara",
+      "price": 6.5,
+      "description": "Cream, parmesan, halal bacon.",
+      "photos": [
+        "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765726137/carbonara_rtud2f.jpg"
+      ]
     },
     {
-      "nom": "Poulet rôti + accompagnement",
-      "prix": 7.5,
-      "description": "Poulet mariné rôti et garniture du jour.",
+      "name": "Roast Chicken + Side",
+      "price": 7.5,
+      "description": "Marinated roast chicken with the daily side.",
       "photos": ["/images/cafeteria/plats/poulet.jpg"]
     },
     {
-      "nom": "Burger maison + frites",
-      "prix": 8.5,
-      "description": "Pain brioché, steak halal, cheddar, frites fraîches.",
+      "name": "Homemade Burger + Fries",
+      "price": 8.5,
+      "description": "Brioche bun, halal beef patty, cheddar, fresh fries.",
       "photos": ["/images/cafeteria/plats/burger.jpg"]
     }
   ],
 
-  "sandwichs": [
+  "sandwiches": [
     {
-      "nom": "Sandwich Thon Crudités",
-      "prix": 4.5,
-      "description": "Thon, mayo, salade, tomates, concombres.",
-      "photos": ["/images/cafeteria/sandwichs/thon.jpg"]
+      "name": "Tuna Salad Sandwich",
+      "price": 4.5,
+      "description": "Tuna, mayo, lettuce, tomatoes, cucumbers.",
+      "photos": [
+        "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765726137/sandwich-au-thon-sur-la-plaque_x4riin.jpg"
+      ]
     },
     {
-      "nom": "Sandwich Poulet Crudités",
-      "prix": 4.5,
-      "description": "Poulet épicé, mayo, salade, tomates.",
+      "name": "Chicken Salad Sandwich",
+      "price": 4.5,
+      "description": "Spicy chicken, mayo, lettuce, tomatoes.",
       "photos": ["/images/cafeteria/sandwichs/poulet.jpg"]
     },
     {
-      "nom": "Sandwich Jambon dinde Emmental",
-      "prix": 4.5,
-      "description": "Jambon dinde halal, emmental, beurre.",
-      "photos": ["/images/cafeteria/sandwichs/jambon.jpg"]
+      "name": "Turkey Ham & Emmental Sandwich",
+      "price": 4.5,
+      "description": "Halal turkey ham, emmental cheese, butter.",
+      "photos": [
+        "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765726142/sandwich_loby4s.jpg"
+      ]
     },
     {
-      "nom": "Wrap Poulet",
-      "prix": 5.0,
-      "description": "Poulet snacké, sauce blanche, salade.",
-      "photos": ["/images/cafeteria/sandwichs/wrap_poulet.jpg"]
+      "name": "Chicken Wrap",
+      "price": 5.0,
+      "description": "Grilled chicken, white sauce, lettuce.",
+      "photos": [
+        "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765726143/burritos-enrobe-de-poulet-et-de-legumes-burrito-au-poulet-cuisine-mexicaine_k19mui.jpg"
+      ]
     }
   ],
 
   "snacks": [
     {
-      "nom": "Panini Poulet",
-      "prix": 5.0,
-      "description": "Poulet mariné, mozzarella.",
+      "name": "Chicken Panini",
+      "price": 5.0,
+      "description": "Marinated chicken, mozzarella.",
       "photos": ["/images/cafeteria/snacks/panini_poulet.jpg"]
     },
     {
-      "nom": "Panini Thon",
-      "prix": 5.0,
-      "description": "Thon, fromage, tomates.",
+      "name": "Tuna Panini",
+      "price": 5.0,
+      "description": "Tuna, cheese, tomatoes.",
       "photos": ["/images/cafeteria/snacks/panini_thon.jpg"]
     },
     {
-      "nom": "Croque-Monsieur",
-      "prix": 3.5,
-      "description": "Pain de mie, dinde, emmental gratiné.",
+      "name": "Croque-Monsieur",
+      "price": 3.5,
+      "description": "Sliced bread, turkey, melted emmental cheese.",
       "photos": ["/images/cafeteria/snacks/croque.jpg"]
     }
   ],
 
-  "viennoiseries": [
+  "pastries": [
     {
-      "nom": "Croissant",
-      "prix": 1.0,
+      "name": "Croissant",
+      "price": 1.0,
       "photos": ["/images/cafeteria/viennoiseries/croissant.jpg"]
     },
     {
-      "nom": "Pain au chocolat",
-      "prix": 1.0,
+      "name": "Chocolate Croissant",
+      "price": 1.0,
       "photos": ["/images/cafeteria/viennoiseries/pain_choco.jpg"]
     },
     {
-      "nom": "Torsade",
-      "prix": 1.3,
+      "name": "Twist Pastry",
+      "price": 1.3,
       "photos": ["/images/cafeteria/viennoiseries/torsade.jpg"]
     }
   ],
 
-  "boissons_chaudes": [
+  "hot_drinks": [
     {
-      "nom": "Café",
-      "prix": 1.2,
+      "name": "Coffee",
+      "price": 1.2,
       "photos": ["/images/cafeteria/boissons_chaudes/cafe.jpg"]
     },
     {
-      "nom": "Cappuccino",
-      "prix": 1.8,
+      "name": "Cappuccino",
+      "price": 1.8,
       "photos": ["/images/cafeteria/boissons_chaudes/cappuccino.jpg"]
     },
     {
-      "nom": "Thé",
-      "prix": 1.2,
+      "name": "Tea",
+      "price": 1.2,
       "photos": ["/images/cafeteria/boissons_chaudes/the.jpg"]
     },
     {
-      "nom": "Chocolat chaud",
-      "prix": 2.0,
+      "name": "Hot Chocolate",
+      "price": 2.0,
       "photos": ["/images/cafeteria/boissons_chaudes/chocolat.jpg"]
     }
   ],
 
-  "boissons_froides": [
+  "cold_drinks": [
     {
-      "nom": "Eau plate 50cl",
-      "prix": 1.0,
+      "name": "Still Water 50cl",
+      "price": 1.0,
       "photos": ["/images/cafeteria/boissons_froides/eau.jpg"]
     },
     {
-      "nom": "Eau gazeuse 50cl",
-      "prix": 1.2,
+      "name": "Sparkling Water 50cl",
+      "price": 1.2,
       "photos": ["/images/cafeteria/boissons_froides/gazeuse.jpg"]
     },
     {
-      "nom": "Coca-Cola",
-      "prix": 2.0,
+      "name": "Coca-Cola",
+      "price": 2.0,
       "photos": ["/images/cafeteria/boissons_froides/coca.jpg"]
     },
     {
-      "nom": "Jus d’orange 25cl",
-      "prix": 2.5,
+      "name": "Orange Juice 25cl",
+      "price": 2.5,
       "photos": ["/images/cafeteria/boissons_froides/jus_orange.jpg"]
     }
   ],
 
   "desserts": [
     {
-      "nom": "Brownie",
-      "prix": 2.0,
+      "name": "Brownie",
+      "price": 2.0,
       "photos": ["/images/cafeteria/desserts/brownie.jpg"]
     },
     {
-      "nom": "Cookie chocolat",
-      "prix": 1.5,
+      "name": "Chocolate Cookie",
+      "price": 1.5,
       "photos": ["/images/cafeteria/desserts/cookie.jpg"]
     },
     {
-      "nom": "Muffin chocolat",
-      "prix": 2.0,
+      "name": "Chocolate Muffin",
+      "price": 2.0,
       "photos": ["/images/cafeteria/desserts/muffin.jpg"]
     },
     {
-      "nom": "Salade de fruits",
-      "prix": 2.5,
+      "name": "Fruit Salad",
+      "price": 2.5,
       "photos": ["/images/cafeteria/desserts/fruits.jpg"]
     }
   ],
 
-  "formules": [
+  "meal_deals": [
     {
-      "nom": "Formule Sandwich",
-      "prix": 7.5,
-      "description": "Sandwich + Boisson + Dessert",
+      "name": "Sandwich Meal Deal",
+      "price": 7.5,
+      "description": "Sandwich + Drink + Dessert",
       "photos": ["/images/cafeteria/formules/formule_sandwich.jpg"]
     },
     {
-      "nom": "Formule Chaud",
-      "prix": 9.5,
-      "description": "Plat chaud + Boisson + Dessert",
+      "name": "Hot Meal Deal",
+      "price": 9.5,
+      "description": "Hot dish + Drink + Dessert",
       "photos": ["/images/cafeteria/formules/formule_chaud.jpg"]
     },
     {
-      "nom": "Formule Snack",
-      "prix": 6.5,
-      "description": "Snack chaud + Boisson",
+      "name": "Snack Meal Deal",
+      "price": 6.5,
+      "description": "Hot snack + Drink",
       "photos": ["/images/cafeteria/formules/formule_snack.jpg"]
     }
   ]

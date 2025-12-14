@@ -10,12 +10,21 @@ const CampusCard: FC<CampusCardProps> = ({ title, img, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer relative h-[380px] w-full md:h-[420px] overflow-hidden shadow-2xl rounded-3xl hover:scale-[1.04] transition-transform duration-700"
+      className="cursor-pointer relative h-[360px] w-full md:h-[420px] overflow-hidden md:rounded-3xl shadow-2xl transform transition duration-500 hover:scale-105 mx-6"
     >
-      <img src={img} className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <h2 className="text-gold text-5xl font-extrabold drop-shadow-xl">
+      {/* Image */}
+      <img
+        src={img}
+        alt={title}
+        className="w-full h-full object-cover transition-transform duration-500"
+      />
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+
+      {/* Title */}
+      <div className="absolute inset-0 flex items-center justify-center px-4">
+        <h2 className="text-[#e5c47e] text-4xl md:text-8xl font-extralight text-center drop-shadow-2xl">
           {title}
         </h2>
       </div>

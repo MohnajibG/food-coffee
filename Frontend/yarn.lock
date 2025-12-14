@@ -840,6 +840,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@revolut/checkout@npm:^1.1.23":
+  version: 1.1.23
+  resolution: "@revolut/checkout@npm:1.1.23"
+  checksum: 964981df95f1b349e7cb84c770b2e57c59109ae97bf767868e8d0937de5d896740be33e09286a964d6fec14198db9067e7c67ec94aafc33fd6b4f366e9c6d7fc
+  languageName: node
+  linkType: hard
+
 "@rolldown/pluginutils@npm:1.0.0-beta.47":
   version: 1.0.0-beta.47
   resolution: "@rolldown/pluginutils@npm:1.0.0-beta.47"
@@ -998,6 +1005,13 @@ __metadata:
   version: 4.53.3
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.53.3"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@stripe/stripe-js@npm:^8.5.3":
+  version: 8.5.3
+  resolution: "@stripe/stripe-js@npm:8.5.3"
+  checksum: e084d2b280005148f4e8cdf8b57e6686c2055c0e191f60c5b3c5b861e7a6790527ba50f786ded9b538bdefdddadcf3daedc209010c92e33eadaccb0a9145221b
   languageName: node
   linkType: hard
 
@@ -2161,6 +2175,8 @@ __metadata:
     "@cloudinary/url-gen": ^1.22.0
     "@emailjs/browser": ^4.4.1
     "@eslint/js": ^9.39.1
+    "@revolut/checkout": ^1.1.23
+    "@stripe/stripe-js": ^8.5.3
     "@tailwindcss/vite": ^4.1.17
     "@types/jquery": ^3.5.33
     "@types/node": ^24.10.0

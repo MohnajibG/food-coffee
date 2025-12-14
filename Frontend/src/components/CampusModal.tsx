@@ -1,6 +1,5 @@
 import { type FC } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "./Carrousel";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,7 +8,7 @@ interface ModalProps {
   hours: string;
   address: string;
   menu: string;
-  photos: Array<string | undefined>;
+  photos: string[];
 }
 
 const CampusModal: FC<ModalProps> = ({
@@ -26,59 +25,70 @@ const CampusModal: FC<ModalProps> = ({
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 max-md:items-end"
+      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end md:items-center justify-center"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white/95 w-full max-w-lg p-6 relative shadow-2xl md:rounded-2xl max-md:rounded-t-3xl max-md:h-[90vh] max-md:overflow-y-auto flex flex-col"
+        className="relative w-full h-dvh md:h-[90vh] md:max-w-4xl bg-white shadow-2xl md:rounded-3xl flex flex-col overflow-hidden"
       >
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-black text-3xl"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 text-2xl flex items-center justify-center transition"
         >
           ×
         </button>
 
-        <Carousel
-          photos={photos}
-          isOpen={false}
-          onClose={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-          title={""}
-          hours={""}
-          address={""}
-          menu={""}
-        />
-
-        <h3 className="text-4xl font-extrabold text-gold mt-6 mb-4 drop-shadow-lg text-center">
-          {title}
-        </h3>
-
-        <div className="space-y-4 text-gray-700 pb-6 text-lg flex-1">
-          <p>
-            <span className="font-semibold">Hours:</span>
-            <br />
-            {hours}
-          </p>
-          <p>
-            <span className="font-semibold">Address:</span>
-            <br />
-            {address}
-          </p>
-          <p>
-            <span className="font-semibold">Today's Menu:</span>
-            <br />
-            {menu}
-          </p>
+        {/* Gallery */}
+        <div className="px-4 pt-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {photos.map((photo, index) =>
+              photo ? (
+                <div
+                  key={index}
+                  className="relative h-40 md:h-44 rounded-2xl overflow-hidden bg-black/5"
+                >
+                  <img
+                    src={photo}
+                    alt={`${title} photo ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              ) : null
+            )}
+          </div>
         </div>
 
-        <Link
-          to={`/order?campus=${encodeURIComponent(title)}`}
-          className="mt-4 w-full bg-gold text-black font-semibold px-6 py-3 rounded-xl shadow-lg text-center hover:bg-white/90 transition"
-        >
-          Order Now
-        </Link>
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto px-6 py-6 text-center">
+          <h3 className="text-4xl md:text-6xl font-extralight text-gold mb-6 drop-shadow">
+            {title}
+          </h3>
+          <div className="space-y-6 text-gray-700 text-base md:text-lg max-w-xl mx-auto">
+            <p>
+              <span className="font-semibold block mb-1">Hours</span>
+              {hours}
+            </p>
+            <p>
+              <span className="font-semibold block mb-1">Address</span>
+              {address}
+            </p>
+            <p>
+              <span className="font-semibold block mb-1">Today's Menu</span>
+              {menu}
+            </p>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="px-6 pb-6 pt-2">
+          <Link
+            to={`/order?campus=${encodeURIComponent(title)}`}
+            className="block w-full rounded-2xl py-4 text-center font-light text-black bg-linear-to-r from-gold to-[#f3df9a] shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+          >
+            Order Now
+          </Link>
+        </div>
       </div>
     </div>
   );
