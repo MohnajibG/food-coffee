@@ -19,7 +19,7 @@ const ProductModal: FC<ProductModalProps> = ({
   const [qty, setQty] = useState(1);
   if (!product) return null;
 
-  const price = Number(product.price) || 0; // <-- sécurisation
+  const price = Number(product.price) || 0;
 
   return (
     <AnimatePresence>
