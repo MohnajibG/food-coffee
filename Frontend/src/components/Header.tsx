@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`${theme} fixed top-0 left-0 w-full z-50 flex items-center justify-between px-5 md:px-10`}
+        className={`${theme}  top-0 left-0 w-full z-50 flex items-center justify-between px-5 md:px-10`}
         style={headerStyle}
       >
         {/* LEFT — BURGER + LOGO */}

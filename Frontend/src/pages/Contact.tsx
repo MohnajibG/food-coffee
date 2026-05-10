@@ -56,7 +56,7 @@ const Contact = (): JSX.Element => {
         "YOUR_SERVICE_ID",
         "YOUR_TEMPLATE_ID",
         formRef.current,
-        "YOUR_PUBLIC_KEY"
+        "YOUR_PUBLIC_KEY",
       );
       setStatus("success");
       resetForm();
@@ -87,15 +87,7 @@ const Contact = (): JSX.Element => {
       <span className="block md:text-4xl  text-gold text-center "></span>
 
       {/* FORM SECTION */}
-      <section
-        className="w-full max-w-full backdrop-blur-xl  shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10  bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur
-"
-      >
-        <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
-          FOOD <br />&<br /> COFFEE <br />
-          <br />
-          Catalogue
-        </h2>
+      <section className="w-full max-w-full backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] p-10  bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur">
         <form
           ref={formRef}
           onSubmit={sendEmail}
