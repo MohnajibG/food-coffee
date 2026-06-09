@@ -9,10 +9,13 @@ import Cafeterias from "./pages/Cafeterias";
 import Contact from "./pages/Contact";
 
 import Order from "./pages/Order";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 flex ">

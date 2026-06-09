@@ -41,7 +41,7 @@ const CampusModal: FC<ModalProps> = ({
 
         {/* Gallery */}
         <div className="px-4 pt-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="flex space-x-4 overflow-x-auto pb-2">
             {photos.map((photo, index) =>
               photo ? (
                 <div
@@ -54,7 +54,7 @@ const CampusModal: FC<ModalProps> = ({
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-              ) : null
+              ) : null,
             )}
           </div>
         </div>
@@ -84,7 +84,7 @@ const CampusModal: FC<ModalProps> = ({
         <div className="px-6 pb-6 pt-2">
           <Link
             to={`/order?campus=${encodeURIComponent(title)}`}
-            className="block w-full rounded-2xl py-4 text-center font-light text-black bg-linear-to-r from-gold to-[#f3df9a] shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+            className="name"
           >
             Order Now
           </Link>

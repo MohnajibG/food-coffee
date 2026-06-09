@@ -26,7 +26,13 @@ const CartSidebar: FC<CartSidebarProps> = ({
   const [infos, setInfos] = useState({ name: "", email: "", phone: "" });
 
   const checkoutWithStripe = async () => {
-    if (!infos.name || !infos.email || !infos.phone) {
+    const customer = {
+      name: infos.name.trim(),
+      email: infos.email.trim(),
+      phone: infos.phone.trim(),
+    };
+
+    if (!customer.name || !customer.email || !customer.phone) {
       alert("Please fill in all your details.");
       return;
     }
@@ -35,7 +41,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
       const res = await fetch("http://localhost:3000/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
+        body: JSON.stringify({ cart, customer }),
       });
 
       const data = await res.json();

@@ -32,7 +32,7 @@ const FlyToCart = ({ fly }: Props) => {
         duration: 0.7,
         ease: "easeInOut",
       }}
-      className="fixed top-0 left-0 w-16 h-16 object-cover rounded-xl pointer-events-none z-[9999]"
+      className="fixed top-0 left-0 w-16 h-16 object-cover rounded-xl pointer-events-none z-9999"
     />
   );
 };

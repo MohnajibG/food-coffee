@@ -24,7 +24,7 @@ const CampusCard: FC<CampusCardProps> = ({ title, img, onClick }) => {
 
       {/* Title */}
       <div className="absolute inset-0 flex items-center justify-center px-4">
-        <h2 className="text-[#e5c47e] text-4xl md:text-8xl font-extralight text-center drop-shadow-2xl">
+        <h2 className="text-[#e5c47e] text-4xl md:text-6xl font-extralight text-center drop-shadow-2xl">
           {title}
         </h2>
       </div>
