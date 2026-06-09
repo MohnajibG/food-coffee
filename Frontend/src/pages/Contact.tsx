@@ -76,7 +76,7 @@ const Contact = (): JSX.Element => {
       <Hero
         heroPhotos={heroPhotos}
         title={
-          <span className="block mt-3 md:text-9xl text-gold">
+          <span className="block mt-3 text-4xl md:text-9xl text-gold">
             FOOD <br />& <br /> COFFEE
           </span>
         }

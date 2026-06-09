@@ -84,7 +84,8 @@ const CampusModal: FC<ModalProps> = ({
         <div className="px-6 pb-6 pt-2">
           <Link
             to={`/order?campus=${encodeURIComponent(title)}`}
-            className="name"
+            onClick={onClose}
+            className="flex w-full items-center justify-center rounded-xl bg-[#50741f] px-6 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-[#3f5e13] focus:outline-none focus:ring-2 focus:ring-[#50741f] focus:ring-offset-2 active:scale-[0.99] md:text-lg"
           >
             Order Now
           </Link>

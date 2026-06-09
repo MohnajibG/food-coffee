@@ -67,22 +67,25 @@ const CartSidebar: FC<CartSidebarProps> = ({
 
           {/* Sidebar */}
           <motion.aside
-            className="fixed top-0 right-0 h-full w-[92%] md:w-[420px] bg-white/6 backdrop-blur-lg border-l border-white/10 shadow-2xl z-50 flex flex-col"
+            className="fixed right-0 top-0 z-50 flex h-full w-full flex-col bg-[#212121] shadow-2xl sm:w-[420px]"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35 }}
           >
             {/* Header */}
-            <div className="flex justify-between items-center p-5 border-b border-white/8">
+            <div className="flex items-center justify-between border-b border-white/10 p-5">
               <h3 className="text-2xl font-bold text-white">Your Cart</h3>
-              <button onClick={onClose} className="text-3xl text-white/80">
+              <button
+                onClick={onClose}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-3xl text-white/80"
+              >
                 ×
               </button>
             </div>
 
             {/* Cart Items */}
-            <div className="flex-1 p-5 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-5">
               {cart.length === 0 ? (
                 <div className="text-center text-white/70 mt-8">
                   Your cart is empty
@@ -99,17 +102,19 @@ const CartSidebar: FC<CartSidebarProps> = ({
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.04 }}
-                      className="p-4 bg-white/4 rounded-xl shadow-sm flex justify-between items-center mb-4 border border-white/6"
+                      className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-4 shadow-sm"
                     >
-                      <div>
-                        <p className="font-semibold text-white">{name}</p>
+                      <div className="min-w-0">
+                        <p className="truncate font-semibold text-white">
+                          {name}
+                        </p>
                         <p className="text-sm text-white/70">
                           {qty} × {price.toFixed(2)} €
                         </p>
                       </div>
                       <button
                         onClick={() => setCart(cart.filter((_, x) => x !== i))}
-                        className="text-red-400 text-2xl"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-2xl text-red-300"
                       >
                         ×
                       </button>
@@ -123,7 +128,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
                 <div className="mt-6 space-y-4">
                   <input
                     placeholder="Full name"
-                    className="w-full border border-white/10 p-3 rounded-xl bg-white/4 text-white"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
                     value={infos.name}
                     onChange={(e) =>
                       setInfos({ ...infos, name: e.target.value })
@@ -131,7 +136,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
                   />
                   <input
                     placeholder="Email"
-                    className="w-full border border-white/10 p-3 rounded-xl bg-white/4 text-white"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
                     value={infos.email}
                     onChange={(e) =>
                       setInfos({ ...infos, email: e.target.value })
@@ -139,7 +144,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
                   />
                   <input
                     placeholder="Phone number"
-                    className="w-full border border-white/10 p-3 rounded-xl bg-white/4 text-white"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
                     value={infos.phone}
                     onChange={(e) =>
                       setInfos({ ...infos, phone: e.target.value })
@@ -150,14 +155,15 @@ const CartSidebar: FC<CartSidebarProps> = ({
             </div>
 
             {/* Footer / Total */}
-            <div className="p-5 border-t border-white/8">
+            <div className="border-t border-white/10 p-4 sm:p-5">
               <p className="text-xl font-bold text-white">
                 Total : {total.toFixed(2)} €
               </p>
               <motion.button
                 onClick={checkoutWithStripe}
                 whileHover={{ scale: 1.02 }}
-                className="mt-4 w-full bg-linear-to-r from-[#50741f] to-[#3f5e13] text-white py-3 rounded-xl text-lg font-semibold shadow-lg"
+                className="mt-4 w-full rounded-xl bg-linear-to-r from-[#50741f] to-[#3f5e13] py-3.5 text-lg font-semibold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={cart.length === 0}
               >
                 Pay with Stripe
               </motion.button>

@@ -24,7 +24,6 @@ const Catalogue: FC = () => {
       className="md:px-16 bg-(--color-accent)/20 bg-opacity-10 py-24 theme-traiteur"
     >
       <h2 className="text-center text-6xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
-        FOOD <br />&<br /> COFFEE <br />
         <br />
         Catalogue
       </h2>

@@ -13,7 +13,7 @@ const Categories: FC<CategoriesProps> = ({ selected, onSelect }) => {
   ) as (keyof typeof dataCafeteria)[];
 
   return (
-    <div className="flex flex-row md:flex-col gap-3 px-4 py-3 w-full items-center md:items-start justify-center md:justify-start overflow-x-auto md:overflow-visible">
+    <div className="flex w-full snap-x gap-2 overflow-x-auto pb-1 md:flex-col md:overflow-visible md:pb-0">
       {categories.map((cat) => {
         const isSelected = selected === cat;
         return (
@@ -23,10 +23,10 @@ const Categories: FC<CategoriesProps> = ({ selected, onSelect }) => {
             aria-pressed={isSelected}
             whileTap={{ scale: 0.96 }}
             onClick={() => onSelect(cat)}
-            className={`px-4 py-2 rounded-full border whitespace-nowrap shadow-sm text-sm font-medium cursor-pointer uppercase ${
+            className={`snap-start whitespace-nowrap rounded-full border px-4 py-2.5 text-xs font-semibold uppercase shadow-sm transition md:w-full md:rounded-xl md:px-4 md:text-left ${
               isSelected
-                ? "bg-linear-to-r from-[#50741f] to-[#3f5e13] text-white"
-                : "bg-white/6 text-[#212121] border-white/6"
+                ? "border-[#50741f] bg-linear-to-r from-[#50741f] to-[#3f5e13] text-white"
+                : "border-black/10 bg-white text-[#212121] hover:border-[#50741f]/40"
             }`}
           >
             {cat.replace(/_/g, " ")}

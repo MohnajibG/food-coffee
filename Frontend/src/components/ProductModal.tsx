@@ -29,7 +29,7 @@ const ProductModal: FC<ProductModalProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end justify-center z-50"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-sm p-0 sm:items-center sm:p-6"
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
@@ -37,36 +37,38 @@ const ProductModal: FC<ProductModalProps> = ({
             animate={{ y: 0 }}
             exit={{ y: 350 }}
             transition={{ duration: 0.35 }}
-            className="bg-white/6 backdrop-blur-lg border border-white/10 rounded-t-3xl w-full max-h-[90vh] p-5 overflow-y-auto shadow-2xl"
+            className="max-h-[92svh] w-full overflow-y-auto rounded-t-3xl border border-black/5 bg-white p-4 shadow-2xl sm:max-w-xl sm:rounded-3xl sm:p-5"
           >
             <img
               src={product.photos?.[0]}
-              className="modal-product-img w-full h-56 md:h-64 object-cover rounded-2xl shadow-inner"
+              className="modal-product-img h-56 w-full rounded-2xl object-cover shadow-inner sm:h-64"
               alt={product.name || "Product"}
             />
-            <h3 className="text-2xl md:text-3xl font-bold text-white mt-4 drop-shadow">
+            <h3 className="mt-4 text-2xl font-bold text-[#212121] sm:text-3xl">
               {product.name || "Unnamed"}
             </h3>
-            <p className="text-lg md:text-xl font-semibold text-white/90 mt-1">
+            <p className="mt-1 text-lg font-semibold text-[#50741f] sm:text-xl">
               {price.toFixed(2)} €
             </p>
             {product.description && (
-              <p className="mt-4 text-sm md:text-base text-white/80">
+              <p className="mt-4 text-sm leading-relaxed text-[#212121]/75 sm:text-base">
                 {product.description}
               </p>
             )}
 
-            <div className="flex items-center gap-4 mt-6">
+            <div className="mt-6 flex items-center gap-4">
               <button
                 onClick={() => qty > 1 && setQty(qty - 1)}
-                className="w-12 h-12 bg-white/8 rounded-full text-2xl"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f1eadc] text-2xl text-[#212121]"
               >
                 –
               </button>
-              <span className="text-2xl font-semibold text-white">{qty}</span>
+              <span className="min-w-8 text-center text-2xl font-semibold text-[#212121]">
+                {qty}
+              </span>
               <button
                 onClick={() => setQty(qty + 1)}
-                className="w-12 h-12 bg-white/8 rounded-full text-2xl"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f1eadc] text-2xl text-[#212121]"
               >
                 +
               </button>
@@ -82,7 +84,7 @@ const ProductModal: FC<ProductModalProps> = ({
                 onClose();
               }}
               whileHover={{ scale: 1.02 }}
-              className="mt-8 w-full bg-linear-to-r from-[#50741f] to-[#3f5e13] text-white py-3 rounded-xl text-lg font-semibold shadow-lg"
+              className="mt-8 w-full rounded-xl bg-linear-to-r from-[#50741f] to-[#3f5e13] py-3.5 text-lg font-semibold text-white shadow-lg"
             >
               Add to cart
             </motion.button>
