@@ -1,15 +1,11 @@
 import { Request, Response } from "express";
 import Stripe from "stripe";
 import { PRICE_BY_NAME } from "../data/products";
+import { isAllowedOrigin } from "../utils/origin";
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!stripeKey) {
   throw new Error("Stripe secret key not found. Check your .env file!");
-}
-
-const frontendUrl = process.env.FRONTEND_URL;
-if (!frontendUrl) {
-  throw new Error("FRONTEND_URL not set. Check your .env file!");
 }
 
 const stripe = new Stripe(stripeKey, { apiVersion: "2025-11-17.clover" });
@@ -19,6 +15,16 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
   const { cart, customer } = req.body;
+
+  const requestOrigin = req.get("origin");
+  const frontendUrl =
+    requestOrigin && isAllowedOrigin(requestOrigin)
+      ? requestOrigin
+      : process.env.FRONTEND_URL;
+
+  if (!frontendUrl) {
+    return res.status(500).json({ error: "Frontend origin not configured" });
+  }
 
   if (!cart || !Array.isArray(cart) || cart.length === 0) {
     return res.status(400).json({ error: "Cart is required" });
