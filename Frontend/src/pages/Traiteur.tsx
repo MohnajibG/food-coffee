@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useRef, type FC } from "react";
-import emailjs from "@emailjs/browser";
+import { useRef, useState, type FC, type FormEvent } from "react";
 import FlipbookPDF from "../components/FlipbookPDF";
 import Hero from "../components/Hero"; // ✅ Import Hero générique
+import { FormInput, FormTextarea } from "../components/FormField";
+import { API_URL } from "../lib/api";
 
 /* ============================================================
    HERO DATA
@@ -35,18 +35,70 @@ const Catalogue: FC = () => {
 };
 
 /* ============================================================
-   B2B FORM EMAILJS
+   B2B QUOTE REQUEST FORM
 ============================================================ */
+type Status = "idle" | "sending" | "success" | "error";
+
+const MIN_LEAD_DAYS = 2;
+
+const getMinQuoteDate = () => {
+  const d = new Date();
+  d.setDate(d.getDate() + MIN_LEAD_DAYS);
+  return d.toISOString().slice(0, 10);
+};
+
 const Formulaire: FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const sendEmail = (e: any) => {
+  const sendEmail = async (e: FormEvent) => {
     e.preventDefault();
-    emailjs.sendForm("serviceID", "templateID", formRef.current!, "publicKey");
+    if (!formRef.current) return;
+
+    const required = ["company", "name", "phone"];
+    const data = new FormData(formRef.current);
+    const missing = required.some((key) => !String(data.get(key) ?? "").trim());
+    if (missing) {
+      setErrorMessage("Please fill in the required fields (company, name, phone).");
+      setStatus("error");
+      return;
+    }
+
+    const dateValue = String(data.get("date") ?? "").trim();
+    if (dateValue && dateValue < getMinQuoteDate()) {
+      setErrorMessage(`Please choose a date at least ${MIN_LEAD_DAYS} days from today.`);
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMessage(null);
+    try {
+      const res = await fetch(`${API_URL}/quote`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(data)),
+      });
+      const result = await res.json().catch(() => null);
+      if (!res.ok) {
+        throw new Error(result?.error || "Unable to send your request.");
+      }
+      setStatus("success");
+      formRef.current.reset();
+    } catch (err) {
+      console.error(err);
+      const message =
+        err instanceof Error ? err.message : "Unable to send your request.";
+      setErrorMessage(message);
+      setStatus("error");
+    } finally {
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
-    <section className="flex flex-col w-[100wv] items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green)/80 bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
+    <section className="flex flex-col w-full items-center justify-center text-center py-20 px-6 theme-traiteur bg-(--color-secondary-green)/80 bg-gradient-radial from-(--color-secondary-green) to-(--color-secondary-green-light)">
       <h2 className="text-center text-4xl md:text-8xl font-extralight text-(--color-accent) mb-12 drop-shadow-xl">
         Request a Quote
       </h2>
@@ -54,51 +106,45 @@ const Formulaire: FC = () => {
       <form
         ref={formRef}
         onSubmit={sendEmail}
-        className=" w-[90%] md:w-[60%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-amber-50 bg-opacity-10 shadow-lg"
+        className="w-[90%] md:w-[60%] mx-auto grid grid-cols-1 gap-5 rounded-3xl bg-white/80 p-8 shadow-lg backdrop-blur-xl md:grid-cols-2"
+        aria-describedby="quote-form-status"
       >
-        <input
-          name="company"
-          placeholder="Company Name"
-          className="inputModern col-span-2 bg-white"
-        />
-        <input
-          name="name"
-          placeholder="Full Name"
-          className="inputModern col-span-2  bg-white"
+        <FormInput label="Company Name *" name="company" className="col-span-2" />
+        <FormInput label="Full Name *" name="name" className="col-span-2" />
+        <FormInput label="Phone *" name="phone" type="tel" className="col-span-2" />
+        <FormInput label="Delivery Address" name="address" className="col-span-2" />
+        <FormInput label="Date" name="date" type="date" min={getMinQuoteDate()} />
+        <FormInput label="Number of People" name="people" type="number" min={1} />
+        <FormTextarea
+          label="Message / Specific Needs"
+          name="message"
+          className="col-span-2"
         />
 
-        <input
-          name="phone"
-          placeholder="Phone"
-          className="inputModern col-span-2  bg-white"
-        />
-        <input
-          name="address"
-          placeholder="Delivery Address"
-          className="inputModern col-span-2  bg-white"
-        />
-        <input
-          type="date"
-          name="date"
-          className="inputModern col-span-2  bg-white"
-        />
-        <input
-          type="number"
-          name="people"
-          placeholder="Number of People"
-          className="inputModern col-span-2  bg-white"
-        />
-        <textarea
-          name="message"
-          placeholder="Message / Specific Needs"
-          className="inputModern col-span-2  bg-white h-32"
-        />
         <button
           type="submit"
-          className="mt-6 col-span-2 bg-(--color-accent) text-(--color-bg) py-3 rounded-xl text-xl font-extralight shadow-lg hover:scale-105 transition-transform"
+          disabled={status === "sending"}
+          className={`col-span-2 mt-2 rounded-xl py-3 text-xl font-extralight shadow-lg transition ${
+            status === "sending"
+              ? "cursor-not-allowed bg-gray-400 text-white"
+              : "bg-(--color-accent) text-(--color-bg) hover:scale-105"
+          }`}
         >
-          Send Request
+          {status === "sending" ? "Sending..." : "Send Request"}
         </button>
+
+        <div id="quote-form-status" className="col-span-2">
+          {status === "success" && (
+            <p className="rounded-xl bg-white px-4 py-3 text-center font-medium text-(--color-secondary-green)">
+              Thank you — your request has been sent.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="rounded-xl bg-red-50 px-4 py-3 text-center font-medium text-red-600">
+              {errorMessage}
+            </p>
+          )}
+        </div>
       </form>
     </section>
   );

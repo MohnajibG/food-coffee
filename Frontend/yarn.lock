@@ -252,13 +252,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emailjs/browser@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "@emailjs/browser@npm:4.4.1"
-  checksum: 7c33dae1062c7f3106c38c290643c1096505762dea19a71d89515890fb204f5ae3e2954eec3d4c4de1aa6ea586e956d88cde2e5b9a2e4075ea849de9735b6d16
-  languageName: node
-  linkType: hard
-
 "@emnapi/core@npm:^1.5.0, @emnapi/core@npm:^1.6.0":
   version: 1.7.1
   resolution: "@emnapi/core@npm:1.7.1"
@@ -2263,7 +2256,6 @@ __metadata:
   dependencies:
     "@cloudinary/react": ^1.14.3
     "@cloudinary/url-gen": ^1.22.0
-    "@emailjs/browser": ^4.4.1
     "@eslint/js": ^9.39.1
     "@revolut/checkout": ^1.1.23
     "@stripe/stripe-js": ^8.5.3

@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, useState, type FormEvent, type JSX } from "react";
-import emailjs from "@emailjs/browser";
 import Hero from "../components/Hero";
+import { FormInput, FormTextarea } from "../components/FormField";
+import { API_URL } from "../lib/api";
 
 import { motion } from "framer-motion";
 
@@ -52,17 +52,19 @@ const Contact = (): JSX.Element => {
     setErrorMessage(null);
 
     try {
-      await emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        formRef.current,
-        "YOUR_PUBLIC_KEY",
-      );
+      const res = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Unable to send message.");
       setStatus("success");
       resetForm();
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      setErrorMessage(err?.message ?? "An error occurred.");
+      const message = err instanceof Error ? err.message : "An error occurred.";
+      setErrorMessage(message);
       setStatus("error");
     } finally {
       setTimeout(() => setStatus("idle"), 4000);
@@ -91,43 +93,43 @@ const Contact = (): JSX.Element => {
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className=" w-[90%] md:w-[60%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-3xl backdrop-blur-xl bg-amber-50 bg-opacity-10 shadow-lg"
+          className="w-[90%] md:w-[60%] mx-auto grid grid-cols-1 gap-5 rounded-3xl bg-white/80 p-8 shadow-lg backdrop-blur-xl md:grid-cols-2"
           aria-describedby="contact-form-status"
         >
-          <input
+          <FormInput
+            label="Full Name *"
             name="name"
             type="text"
-            placeholder="Full Name *"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
-          <input
+          <FormInput
+            label="Company"
             name="company"
             type="text"
-            placeholder="Company"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
-          <input
+          <FormInput
+            label="Email *"
             name="email"
             type="email"
-            placeholder="Email *"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
-          <input
+          <FormInput
+            label="Phone"
             name="phone"
             type="tel"
-            placeholder="Phone"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
-          <input
+          <FormInput
+            label="Subject"
             name="subject"
             type="text"
-            placeholder="Subject"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
-          <textarea
+          <FormTextarea
+            label="Your message *"
             name="message"
-            placeholder="Your message *"
-            className="inputModern col-span-2 bg-white"
+            className="col-span-2"
           />
           <div className="col-span-2 flex flex-wrap gap-4 mt-4">
             {/* SUBMIT BUTTON */}
@@ -157,21 +159,20 @@ const Contact = (): JSX.Element => {
               }}
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="flex-1 px-6 py-3 rounded-2xl border border-[var(--color-secondary)/20] 
-               text-(--color-text) hover:bg-[var(--color-secondary)/10] transition"
+              className="flex-1 px-6 py-3 rounded-2xl border border-(--color-secondary)/20 text-(--color-text) transition hover:bg-(--color-secondary)/10"
             >
               Reset
             </motion.button>
           </div>
-          <div id="contact-form-status" className="col-span-2 mt-3 text-center">
+          <div id="contact-form-status" className="col-span-2 mt-1">
             {status === "success" && (
-              <p className="text-(--color-secondary-green) font-medium">
+              <p className="rounded-xl bg-(--color-secondary-green)/10 px-4 py-3 text-center font-medium text-(--color-secondary-green)">
                 Thank you — your message has been sent.
               </p>
             )}
             {status === "error" && (
-              <p className="text-(--color-accent) font-medium">
-                Error: {errorMessage ?? "Unable to send message."}
+              <p className="rounded-xl bg-red-50 px-4 py-3 text-center font-medium text-red-600">
+                {errorMessage ?? "Unable to send message."}
               </p>
             )}
           </div>

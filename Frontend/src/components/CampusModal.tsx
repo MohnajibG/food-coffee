@@ -73,7 +73,7 @@ const CampusModal: FC<ModalProps> = ({
                 <img
                   src={photo}
                   alt={`${title} photo ${index + 1}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}

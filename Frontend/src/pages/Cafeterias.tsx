@@ -59,9 +59,9 @@ const Cafeterias: FC = () => {
 
       {/* ==================== CAMPUS GRID ==================== */}
       <section className="relative md:px-16 bg-(--color-accent)/10 py-24 theme-traiteur">
-        <h2 className="text-center text-5xl md:text-7xl lg:text-8xl font-extralight text-(--color-accent) mb-16 drop-shadow-xl leading-snug">
-          FOOD <br />&<br /> COFFEE <br />
-          <span className="text-lg md:text-xl font-light">Campuses</span>
+        <h2 className="text-center text-5xl md:text-7xl lg:text-8xl font-extralight text-(--color-accent) mb-16 drop-shadow-xl leading-snug ">
+          FOOD & COFFEE <br />
+          Campuses
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
