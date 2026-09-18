@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FC } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { Product, CartItem } from "../types/product";
 
 interface ProductModalProps {
   isOpen: boolean;
-  product: any;
+  product: Product | null;
   onClose: () => void;
-  onAdd: (p: any, img: HTMLImageElement | null) => void;
+  onAdd: (p: CartItem, img: HTMLImageElement | null) => void;
 }
 
 const ProductModal: FC<ProductModalProps> = ({
@@ -19,7 +19,7 @@ const ProductModal: FC<ProductModalProps> = ({
   const [qty, setQty] = useState(1);
   if (!product) return null;
 
-  const price = Number(product.price) || 0;
+  const price = product.price;
 
   return (
     <AnimatePresence>
@@ -44,14 +44,14 @@ const ProductModal: FC<ProductModalProps> = ({
               className="modal-product-img h-56 w-full rounded-2xl object-cover shadow-inner sm:h-64"
               alt={product.name || "Product"}
             />
-            <h3 className="mt-4 text-2xl font-bold text-[#212121] sm:text-3xl">
+            <h3 className="mt-4 text-2xl font-bold text-ink sm:text-3xl">
               {product.name || "Unnamed"}
             </h3>
-            <p className="mt-1 text-lg font-semibold text-[#50741f] sm:text-xl">
+            <p className="mt-1 text-lg font-semibold text-green-accent sm:text-xl">
               {price.toFixed(2)} €
             </p>
             {product.description && (
-              <p className="mt-4 text-sm leading-relaxed text-[#212121]/75 sm:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-ink/75 sm:text-base">
                 {product.description}
               </p>
             )}
@@ -59,16 +59,16 @@ const ProductModal: FC<ProductModalProps> = ({
             <div className="mt-6 flex items-center gap-4">
               <button
                 onClick={() => qty > 1 && setQty(qty - 1)}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f1eadc] text-2xl text-[#212121]"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-cream text-2xl text-ink transition hover:brightness-95"
               >
                 –
               </button>
-              <span className="min-w-8 text-center text-2xl font-semibold text-[#212121]">
+              <span className="min-w-8 text-center text-2xl font-semibold text-ink">
                 {qty}
               </span>
               <button
                 onClick={() => setQty(qty + 1)}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f1eadc] text-2xl text-[#212121]"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-cream text-2xl text-ink transition hover:brightness-95"
               >
                 +
               </button>
@@ -84,7 +84,7 @@ const ProductModal: FC<ProductModalProps> = ({
                 onClose();
               }}
               whileHover={{ scale: 1.02 }}
-              className="mt-8 w-full rounded-xl bg-linear-to-r from-[#50741f] to-[#3f5e13] py-3.5 text-lg font-semibold text-white shadow-lg"
+              className="mt-8 w-full rounded-xl bg-linear-to-r from-green-accent to-green-accent-dark py-3.5 text-lg font-semibold text-white shadow-lg"
             >
               Add to cart
             </motion.button>

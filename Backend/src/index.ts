@@ -7,14 +7,12 @@ import checkoutRoutes from "./routes/checkoutRoutes";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(express.json());
 
-app.use("/", checkoutRoutes);
+app.get("/", (_req, res) => res.status(200).json({ status: "ok" }));
 
-// Routes de test pour success / cancel
-app.get("/success", (req, res) => res.send("Payment successful!"));
-app.get("/cancel", (req, res) => res.send("Payment canceled."));
+app.use("/", checkoutRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>

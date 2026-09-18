@@ -25,8 +25,8 @@ const Categories: FC<CategoriesProps> = ({ selected, onSelect }) => {
             onClick={() => onSelect(cat)}
             className={`snap-start whitespace-nowrap rounded-full border px-4 py-2.5 text-xs font-semibold uppercase shadow-sm transition md:w-full md:rounded-xl md:px-4 md:text-left ${
               isSelected
-                ? "border-[#50741f] bg-linear-to-r from-[#50741f] to-[#3f5e13] text-white"
-                : "border-black/10 bg-white text-[#212121] hover:border-[#50741f]/40"
+                ? "border-green-accent bg-linear-to-r from-green-accent to-green-accent-dark text-white"
+                : "border-black/10 bg-white text-ink hover:border-green-accent/40"
             }`}
           >
             {cat.replace(/_/g, " ")}

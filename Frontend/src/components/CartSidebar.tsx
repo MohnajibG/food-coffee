@@ -1,13 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FC } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { CartItem } from "../types/product";
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[0-9+\s()-]{6,20}$/;
 
 interface CartSidebarProps {
   open: boolean;
   onClose: () => void;
-  cart: any[];
-  setCart: (cart: any[]) => void;
+  cart: CartItem[];
+  setCart: (cart: CartItem[]) => void;
 }
 
 const CartSidebar: FC<CartSidebarProps> = ({
@@ -16,14 +21,10 @@ const CartSidebar: FC<CartSidebarProps> = ({
   cart,
   setCart,
 }) => {
-  // Calcul du total sécurisé
-  const total = cart.reduce((sum, item) => {
-    const qty = Number(item?.qty) || 0;
-    const price = Number(item?.price) || 0;
-    return sum + qty * price;
-  }, 0);
+  const total = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
 
   const [infos, setInfos] = useState({ name: "", email: "", phone: "" });
+  const [error, setError] = useState<string | null>(null);
 
   const checkoutWithStripe = async () => {
     const customer = {
@@ -32,23 +33,37 @@ const CartSidebar: FC<CartSidebarProps> = ({
       phone: infos.phone.trim(),
     };
 
-    if (!customer.name || !customer.email || !customer.phone) {
-      alert("Please fill in all your details.");
+    if (!customer.name) {
+      setError("Please enter your full name.");
+      return;
+    }
+    if (!EMAIL_RE.test(customer.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (!PHONE_RE.test(customer.phone)) {
+      setError("Please enter a valid phone number.");
       return;
     }
 
+    setError(null);
+
     try {
-      const res = await fetch("http://localhost:3000/create-checkout-session", {
+      const res = await fetch(`${API_URL}/create-checkout-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart, customer }),
       });
 
       const data = await res.json();
-      if (data?.url) window.location.href = data.url;
+      if (data?.url) {
+        window.location.href = data.url;
+      } else {
+        setError(data?.error || "Failed to initiate payment.");
+      }
     } catch (err) {
       console.error(err);
-      alert("Failed to initiate payment.");
+      setError("Failed to initiate payment.");
     }
   };
 
@@ -67,7 +82,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
 
           {/* Sidebar */}
           <motion.aside
-            className="fixed right-0 top-0 z-50 flex h-full w-full flex-col bg-[#212121] shadow-2xl sm:w-[420px]"
+            className="fixed right-0 top-0 z-50 flex h-full w-full flex-col bg-ink shadow-2xl sm:w-[420px]"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -91,36 +106,30 @@ const CartSidebar: FC<CartSidebarProps> = ({
                   Your cart is empty
                 </div>
               ) : (
-                cart.map((item, i) => {
-                  const qty = Number(item?.qty) || 0;
-                  const price = Number(item?.price) || 0;
-                  const name = item?.name || "Unnamed item";
-
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.04 }}
-                      className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-4 shadow-sm"
+                cart.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.04 }}
+                    className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-4 shadow-sm"
+                  >
+                    <div className="min-w-0">
+                      <p className="truncate font-semibold text-white">
+                        {item.name}
+                      </p>
+                      <p className="text-sm text-white/70">
+                        {item.qty} × {item.price.toFixed(2)} €
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setCart(cart.filter((_, x) => x !== i))}
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-2xl text-red-300"
                     >
-                      <div className="min-w-0">
-                        <p className="truncate font-semibold text-white">
-                          {name}
-                        </p>
-                        <p className="text-sm text-white/70">
-                          {qty} × {price.toFixed(2)} €
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => setCart(cart.filter((_, x) => x !== i))}
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-2xl text-red-300"
-                      >
-                        ×
-                      </button>
-                    </motion.div>
-                  );
-                })
+                      ×
+                    </button>
+                  </motion.div>
+                ))
               )}
 
               {/* User Info */}
@@ -128,7 +137,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
                 <div className="mt-6 space-y-4">
                   <input
                     placeholder="Full name"
-                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-gold"
                     value={infos.name}
                     onChange={(e) =>
                       setInfos({ ...infos, name: e.target.value })
@@ -136,7 +145,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
                   />
                   <input
                     placeholder="Email"
-                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-gold"
                     value={infos.email}
                     onChange={(e) =>
                       setInfos({ ...infos, email: e.target.value })
@@ -144,12 +153,13 @@ const CartSidebar: FC<CartSidebarProps> = ({
                   />
                   <input
                     placeholder="Phone number"
-                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-[#d8b56a]"
+                    className="w-full rounded-xl border border-white/10 bg-white/8 p-3 text-white outline-none placeholder:text-white/45 focus:border-gold"
                     value={infos.phone}
                     onChange={(e) =>
                       setInfos({ ...infos, phone: e.target.value })
                     }
                   />
+                  {error && <p className="text-sm text-red-400">{error}</p>}
                 </div>
               )}
             </div>
@@ -162,7 +172,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
               <motion.button
                 onClick={checkoutWithStripe}
                 whileHover={{ scale: 1.02 }}
-                className="mt-4 w-full rounded-xl bg-linear-to-r from-[#50741f] to-[#3f5e13] py-3.5 text-lg font-semibold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                className="mt-4 w-full rounded-xl bg-linear-to-r from-green-accent to-green-accent-dark py-3.5 text-lg font-semibold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={cart.length === 0}
               >
                 Pay with Stripe

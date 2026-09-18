@@ -9,15 +9,8 @@ import FloatingCartButton from "../components/FloatingCartButton";
 import FlyToCart from "../components/FlyToCart";
 
 import dataCafeteria from "../data/cafeterias.json";
+import type { Product, CartItem } from "../types/product";
 
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  qty?: number;
-  photos: string[];
-  description?: string;
-}
 const heroImages = [
   "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486162/hero1_onn8o8.webp",
   "https://res.cloudinary.com/dqwocrdnh/image/upload/v1765487796/vue-aerienne-de-divers-cafe_nyncyf.webp",
@@ -26,7 +19,7 @@ const heroImages = [
 ];
 
 const OrderPage = () => {
-  const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
   const [openCart, setOpenCart] = useState(false);
   const categoryKeys = Object.keys(
     dataCafeteria,
@@ -48,7 +41,7 @@ const OrderPage = () => {
     endY: number;
   } | null>(null);
 
-  const handleAdd = (product: Product, img: HTMLImageElement | null) => {
+  const handleAdd = (product: CartItem, img: HTMLImageElement | null) => {
     setCart((prev) => [...prev, product]);
 
     if (!img || !cartIconRef.current) return;
@@ -68,7 +61,7 @@ const OrderPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#f7f1e4] text-[#212121]">
+    <div className="relative min-h-screen w-full overflow-hidden bg-cream text-ink">
       <Hero
         heroPhotos={heroImages}
         overlayColor="rgba(0,0,0,0.45)"
@@ -85,7 +78,7 @@ const OrderPage = () => {
         <div className="flex w-full max-w-sm flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center">
           <a
             href="#products"
-            className="rounded-xl bg-linear-to-r from-gold to-[#f3df9a] px-7 py-3 text-center font-semibold text-black shadow-xl transition hover:brightness-105"
+            className="rounded-xl bg-linear-to-r from-gold to-lightGold px-7 py-3 text-center font-semibold text-black shadow-xl transition hover:brightness-105"
           >
             View Menu
           </a>
@@ -109,25 +102,21 @@ const OrderPage = () => {
         id="products"
         className="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 py-10 sm:px-6 md:flex-row md:gap-8 md:py-16 lg:px-8"
       >
-        <aside className="sticky top-0 z-20 -mx-4 bg-[#f7f1e4]/95 px-4 py-3 backdrop-blur md:top-20 md:z-auto md:mx-0 md:w-64 md:shrink-0 md:bg-transparent md:px-0 md:py-0">
+        <aside className="sticky top-0 z-20 -mx-4 bg-cream/95 px-4 py-3 backdrop-blur md:top-20 md:z-auto md:mx-0 md:w-64 md:shrink-0 md:bg-transparent md:px-0 md:py-0">
           <Categories selected={selectedCat} onSelect={setSelectedCat} />
         </aside>
 
         <section className="min-w-0 flex-1">
           <div className="mb-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#50741f]">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-green-accent">
               Menu
             </p>
-            <h2 className="mt-1 text-2xl font-semibold text-[#212121] sm:text-3xl">
+            <h2 className="mt-1 text-2xl font-semibold text-ink sm:text-3xl">
               Choose your favourites
             </h2>
           </div>
 
-          <ProductGrid
-            onAdd={handleAdd}
-            selectedCat={selectedCat}
-            setProduct={setProduct}
-          />
+          <ProductGrid selectedCat={selectedCat} setProduct={setProduct} />
         </section>
       </main>
 

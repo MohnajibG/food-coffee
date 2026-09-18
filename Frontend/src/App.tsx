@@ -9,6 +9,8 @@ import Cafeterias from "./pages/Cafeterias";
 import Contact from "./pages/Contact";
 
 import Order from "./pages/Order";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
             <Route path="/cafeterias" element={<Cafeterias />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order" element={<Order />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
           </Routes>
         </main>
         <Footer />

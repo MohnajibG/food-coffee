@@ -16,12 +16,12 @@ const FloatingCartButton = ({ count, onClick, cartRef }: Props) => {
         onClick={onClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
-        className="relative p-4 rounded-2xl bg-[#212121]/80 backdrop-blur-xl border border-white/10 shadow-2xl"
+        className="relative p-4 rounded-2xl bg-ink/80 backdrop-blur-xl border border-white/10 shadow-2xl"
       >
         <FiShoppingCart size={26} className="text-white" />
 
         {count > 0 && (
-          <span className="absolute -top-2 -right-2 bg-[#50741f] text-white text-xs px-2 py-1 rounded-full">
+          <span className="absolute -top-2 -right-2 bg-green-accent text-white text-xs px-2 py-1 rounded-full">
             {count}
           </span>
         )}

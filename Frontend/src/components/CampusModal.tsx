@@ -1,5 +1,6 @@
-import { type FC } from "react";
+import { useRef, useState, type FC } from "react";
 import { Link } from "react-router-dom";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface ModalProps {
   isOpen: boolean;
@@ -20,7 +21,25 @@ const CampusModal: FC<ModalProps> = ({
   menu,
   photos,
 }) => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   if (!isOpen) return null;
+
+  const validPhotos = photos.filter(Boolean);
+
+  const scrollToIndex = (index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const clamped = Math.max(0, Math.min(index, validPhotos.length - 1));
+    track.scrollTo({ left: clamped * track.clientWidth, behavior: "smooth" });
+  };
+
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    setActiveIndex(Math.round(track.scrollLeft / track.clientWidth));
+  };
 
   return (
     <div
@@ -40,23 +59,61 @@ const CampusModal: FC<ModalProps> = ({
         </button>
 
         {/* Gallery */}
-        <div className="px-4 pt-6">
-          <div className="flex space-x-4 overflow-x-auto pb-2">
-            {photos.map((photo, index) =>
-              photo ? (
-                <div
-                  key={index}
-                  className="relative h-40 md:h-44 rounded-2xl overflow-hidden bg-black/5"
-                >
-                  <img
-                    src={photo}
-                    alt={`${title} photo ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-              ) : null,
-            )}
+        <div className="relative px-4 pt-6">
+          <div
+            ref={trackRef}
+            onScroll={handleScroll}
+            className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth rounded-2xl [&::-webkit-scrollbar]:hidden"
+          >
+            {validPhotos.map((photo, index) => (
+              <div
+                key={index}
+                className="h-56 w-full shrink-0 snap-center overflow-hidden bg-black/5 md:h-64"
+              >
+                <img
+                  src={photo}
+                  alt={`${title} photo ${index + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
           </div>
+
+          {validPhotos.length > 1 && (
+            <>
+              <button
+                onClick={() => scrollToIndex(activeIndex - 1)}
+                aria-label="Previous photo"
+                className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-ink shadow-md backdrop-blur transition hover:bg-white disabled:opacity-30"
+                disabled={activeIndex === 0}
+              >
+                <FiChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => scrollToIndex(activeIndex + 1)}
+                aria-label="Next photo"
+                className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-ink shadow-md backdrop-blur transition hover:bg-white disabled:opacity-30"
+                disabled={activeIndex === validPhotos.length - 1}
+              >
+                <FiChevronRight size={20} />
+              </button>
+
+              <div className="mt-3 flex items-center justify-center gap-1.5">
+                {validPhotos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToIndex(index)}
+                    aria-label={`Go to photo ${index + 1}`}
+                    className={`h-1.5 rounded-full transition-all ${
+                      index === activeIndex
+                        ? "w-5 bg-green-accent"
+                        : "w-1.5 bg-black/15"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Content */}
@@ -85,7 +142,7 @@ const CampusModal: FC<ModalProps> = ({
           <Link
             to={`/order?campus=${encodeURIComponent(title)}`}
             onClick={onClose}
-            className="flex w-full items-center justify-center rounded-xl bg-[#50741f] px-6 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-[#3f5e13] focus:outline-none focus:ring-2 focus:ring-[#50741f] focus:ring-offset-2 active:scale-[0.99] md:text-lg"
+            className="flex w-full items-center justify-center rounded-xl bg-green-accent px-6 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-green-accent-dark focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2 active:scale-[0.99] md:text-lg"
           >
             Order Now
           </Link>

@@ -1,23 +1,40 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/traiteur", label: "Traiteur" },
+  { to: "/cafeterias", label: "Cafeterias" },
+  { to: "/contact", label: "Contact" },
+];
 
 const NavDesktop = () => {
   return (
     <nav
-      className="hidden md:flex items-center gap-10 text-lg font-sans"
+      className="hidden items-center gap-10 text-sm font-semibold tracking-wide uppercase md:flex"
       style={{ color: "var(--color-text)" }}
     >
-      <Link className="hover:text-color-accent transition" to="/">
-        HOME
-      </Link>
-      <Link className="hover:text-color-accent transition" to="/traiteur">
-        TRAITEUR
-      </Link>
-      <Link className="hover:text-color-accent transition" to="/cafeterias">
-        CAFETERIAS
-      </Link>
-      <Link className="hover:text-color-accent transition" to="/contact">
-        CONTACT
-      </Link>
+      {links.map(({ to, label }) => (
+        <NavLink
+          key={to}
+          to={to}
+          className={({ isActive }) =>
+            `relative py-1 transition-colors hover:text-(--color-accent) ${
+              isActive ? "text-(--color-accent)" : ""
+            }`
+          }
+        >
+          {({ isActive }) => (
+            <>
+              {label}
+              <span
+                className={`absolute -bottom-1 left-0 h-px w-full bg-(--color-accent) transition-opacity ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </>
+          )}
+        </NavLink>
+      ))}
     </nav>
   );
 };

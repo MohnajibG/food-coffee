@@ -8,6 +8,12 @@
   --color-gold: #d8b56a;
   --color-lightGold: #ebd7a1;
 
+  /* Palette unifiée de l'interface de commande (panier, produits) */
+  --color-green-accent: #50741f;
+  --color-green-accent-dark: #3f5e13;
+  --color-cream: #f7f1e4;
+  --color-ink: #212121;
+
   --font-serif: "Playfair Display", serif;
   --font-sans: "Montserrat", sans-serif;
 
@@ -24,8 +30,8 @@
 .theme-traiteur {
   --color-primary: #4a1f29;
   --color-secondary: #875d65;
-  --color-secondary-green: #618b25;
-  --color-secondary-green-light: #97b173;
+  --color-secondary-green: var(--color-green-accent);
+  --color-secondary-green-light: #82a94f;
   --color-accent: var(--color-gold);
   --color-accent-light: var(--color-lightGold);
   --color-bg: #fff;

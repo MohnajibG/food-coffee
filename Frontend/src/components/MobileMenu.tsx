@@ -1,9 +1,17 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FiX } from "react-icons/fi";
+
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/traiteur", label: "Traiteur" },
+  { to: "/cafeterias", label: "Cafeterias" },
+  { to: "/contact", label: "Contact" },
+];
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   return (
@@ -36,19 +44,21 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="border-b border-black/10 mb-4"></div>
 
         {/* LINKS */}
-        <nav className="flex flex-col gap-6 px-6 text-lg">
-          <Link to="/" onClick={onClose} className="hover:opacity-70">
-            HOME
-          </Link>
-          <Link to="/traiteur" onClick={onClose} className="hover:opacity-70">
-            TRAITEUR
-          </Link>
-          <Link to="/cafeterias" onClick={onClose} className="hover:opacity-70">
-            CAFETERIAS
-          </Link>
-          <Link to="/contact" onClick={onClose} className="hover:opacity-70">
-            CONTACT
-          </Link>
+        <nav className="flex flex-col gap-6 px-6 text-lg font-semibold uppercase tracking-wide">
+          {links.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={onClose}
+              className={({ isActive }) =>
+                `transition-colors hover:text-gold ${
+                  isActive ? "text-gold" : ""
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
         </nav>
       </div>
     </>

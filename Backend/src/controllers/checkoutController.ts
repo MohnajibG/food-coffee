@@ -1,12 +1,21 @@
 import { Request, Response } from "express";
 import Stripe from "stripe";
+import { PRICE_BY_NAME } from "../data/products";
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!stripeKey) {
   throw new Error("Stripe secret key not found. Check your .env file!");
 }
 
-const stripe = new Stripe(stripeKey);
+const frontendUrl = process.env.FRONTEND_URL;
+if (!frontendUrl) {
+  throw new Error("FRONTEND_URL not set. Check your .env file!");
+}
+
+const stripe = new Stripe(stripeKey, { apiVersion: "2025-11-17.clover" });
+
+const MAX_QTY_PER_ITEM = 20;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
   const { cart, customer } = req.body;
@@ -15,14 +24,34 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
     return res.status(400).json({ error: "Cart is required" });
   }
 
-  const line_items = cart.map((item: any) => ({
-    price_data: {
-      currency: "eur",
-      product_data: { name: item.name || "Product" },
-      unit_amount: Math.round(Number(item.price) * 100),
-    },
-    quantity: Math.max(1, Number(item.qty) || 1),
-  }));
+  if (!EMAIL_RE.test(customer?.email || "")) {
+    return res.status(400).json({ error: "A valid customer email is required" });
+  }
+  if (!customer?.name?.trim()) {
+    return res.status(400).json({ error: "Customer name is required" });
+  }
+
+  const line_items = [];
+  for (const item of cart) {
+    const price = PRICE_BY_NAME.get(item?.name);
+    if (price === undefined) {
+      return res.status(400).json({ error: `Unknown product: ${item?.name}` });
+    }
+
+    const qty = Math.trunc(Number(item.qty));
+    if (!Number.isInteger(qty) || qty < 1 || qty > MAX_QTY_PER_ITEM) {
+      return res.status(400).json({ error: `Invalid quantity for: ${item.name}` });
+    }
+
+    line_items.push({
+      price_data: {
+        currency: "eur",
+        product_data: { name: item.name },
+        unit_amount: Math.round(price * 100),
+      },
+      quantity: qty,
+    });
+  }
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -34,8 +63,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
         customer_name: customer?.name || "",
         customer_phone: customer?.phone || "",
       },
-      success_url: `${process.env.FRONTEND_URL}/success`,
-      cancel_url: `${process.env.FRONTEND_URL}/cancel`,
+      success_url: `${frontendUrl}/success`,
+      cancel_url: `${frontendUrl}/cancel`,
     });
 
     res.json({ url: session.url });
