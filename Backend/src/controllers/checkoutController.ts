@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import Stripe from "stripe";
 import { PRICE_BY_NAME } from "../data/products";
 import { isAllowedOrigin } from "../utils/origin";
+import { ensureDbConnection } from "../db/connection";
+import { Order } from "../models/Order";
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!stripeKey) {
@@ -38,6 +40,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
   }
 
   const line_items = [];
+  const orderItems = [];
   for (const item of cart) {
     const price = PRICE_BY_NAME.get(item?.name);
     if (price === undefined) {
@@ -57,6 +60,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
       },
       quantity: qty,
     });
+    orderItems.push({ name: item.name, price, qty });
   }
 
   try {
@@ -72,6 +76,23 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
       success_url: `${frontendUrl}/success`,
       cancel_url: `${frontendUrl}/cancel`,
     });
+
+    try {
+      if (await ensureDbConnection()) {
+        await Order.create({
+          items: orderItems,
+          customer: {
+            name: customer.name,
+            email: customer.email,
+            phone: customer.phone,
+          },
+          amountTotal: session.amount_total ?? 0,
+          stripeSessionId: session.id,
+        });
+      }
+    } catch (err) {
+      console.error("Failed to log order to MongoDB:", err);
+    }
 
     res.json({ url: session.url });
   } catch (err) {

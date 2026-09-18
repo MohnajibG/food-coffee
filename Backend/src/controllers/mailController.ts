@@ -1,7 +1,23 @@
 import { Request, Response } from "express";
 import { escapeHtml, sendMail } from "../utils/mailer";
+import { ensureDbConnection } from "../db/connection";
+import { EmailLog } from "../models/EmailLog";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const logEmail = async (
+  type: "contact" | "quote",
+  fields: Record<string, unknown>,
+  status: "sent" | "failed",
+  error?: string,
+) => {
+  try {
+    if (!(await ensureDbConnection())) return;
+    await EmailLog.create({ type, fields, status, error });
+  } catch (err) {
+    console.error("Failed to log email to MongoDB:", err);
+  }
+};
 
 export const sendContactEmail = async (req: Request, res: Response) => {
   const { name, email, company, phone, subject, message } = req.body ?? {};
@@ -39,6 +55,13 @@ export const sendContactEmail = async (req: Request, res: Response) => {
       `<p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
     ].join("\n"),
   });
+
+  await logEmail(
+    "contact",
+    { name, email, company, phone, subject, message },
+    result.ok ? "sent" : "failed",
+    result.ok ? undefined : result.error,
+  );
 
   if (!result.ok) return res.status(500).json({ error: result.error });
   res.json({ ok: true });
@@ -89,6 +112,13 @@ export const sendQuoteEmail = async (req: Request, res: Response) => {
         : "",
     ].join("\n"),
   });
+
+  await logEmail(
+    "quote",
+    { company, name, phone, address, date, people, message },
+    result.ok ? "sent" : "failed",
+    result.ok ? undefined : result.error,
+  );
 
   if (!result.ok) return res.status(500).json({ error: result.error });
   res.json({ ok: true });

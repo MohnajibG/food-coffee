@@ -21,6 +21,7 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.7.0",
     "mailersend": "^3.4.0",
+    "mongoose": "^9.10.1",
     "stripe": "^20.0.0"
   },
   "devDependencies": {
