@@ -20,13 +20,17 @@
       "name": "Roast Chicken + Side",
       "price": 7.5,
       "description": "Marinated roast chicken with the daily side.",
-      "photos": ["/images/cafeteria/plats/poulet.jpg"]
+      "photos": [
+        "https://images.pexels.com/photos/21517324/pexels-photo-21517324.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ]
     },
     {
       "name": "Homemade Burger + Fries",
       "price": 8.5,
       "description": "Brioche bun, halal beef patty, cheddar, fresh fries.",
-      "photos": ["/images/cafeteria/plats/burger.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ],
 
@@ -43,7 +47,9 @@
       "name": "Chicken Salad Sandwich",
       "price": 4.5,
       "description": "Spicy chicken, mayo, lettuce, tomatoes.",
-      "photos": ["/images/cafeteria/sandwichs/poulet.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1666819604716-7b60a604bb76?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Turkey Ham & Emmental Sandwich",
@@ -68,19 +74,25 @@
       "name": "Chicken Panini",
       "price": 5.0,
       "description": "Marinated chicken, mozzarella.",
-      "photos": ["/images/cafeteria/snacks/panini_poulet.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1705537459006-f4acbd93c5a3?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Tuna Panini",
       "price": 5.0,
       "description": "Tuna, cheese, tomatoes.",
-      "photos": ["/images/cafeteria/snacks/panini_thon.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1621852004158-f3bc188ace2d?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Croque-Monsieur",
       "price": 3.5,
       "description": "Sliced bread, turkey, melted emmental cheese.",
-      "photos": ["/images/cafeteria/snacks/croque.jpg"]
+      "photos": [
+        "https://images.pexels.com/photos/26936288/pexels-photo-26936288.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ]
     }
   ],
 
@@ -88,17 +100,23 @@
     {
       "name": "Croissant",
       "price": 1.0,
-      "photos": ["/images/cafeteria/viennoiseries/croissant.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1694613550709-0f59992dd11a?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Chocolate Croissant",
       "price": 1.0,
-      "photos": ["/images/cafeteria/viennoiseries/pain_choco.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1681218424681-b4f8228ecea9?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Twist Pastry",
       "price": 1.3,
-      "photos": ["/images/cafeteria/viennoiseries/torsade.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1756137943635-33bcc6bb1cfa?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ],
 
@@ -106,22 +124,30 @@
     {
       "name": "Coffee",
       "price": 1.2,
-      "photos": ["/images/cafeteria/boissons_chaudes/cafe.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Cappuccino",
       "price": 1.8,
-      "photos": ["/images/cafeteria/boissons_chaudes/cappuccino.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1506372023823-741c83b836fe?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Tea",
       "price": 1.2,
-      "photos": ["/images/cafeteria/boissons_chaudes/the.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Hot Chocolate",
       "price": 2.0,
-      "photos": ["/images/cafeteria/boissons_chaudes/chocolat.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ],
 
@@ -129,22 +155,30 @@
     {
       "name": "Still Water 50cl",
       "price": 1.0,
-      "photos": ["/images/cafeteria/boissons_froides/eau.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1576468475578-ea3c73f77bb7?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Sparkling Water 50cl",
       "price": 1.2,
-      "photos": ["/images/cafeteria/boissons_froides/gazeuse.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1693607053288-5227d2719003?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Coca-Cola",
       "price": 2.0,
-      "photos": ["/images/cafeteria/boissons_froides/coca.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1654943219980-88a45258ad46?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Orange Juice 25cl",
       "price": 2.5,
-      "photos": ["/images/cafeteria/boissons_froides/jus_orange.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ],
 
@@ -152,22 +186,30 @@
     {
       "name": "Brownie",
       "price": 2.0,
-      "photos": ["/images/cafeteria/desserts/brownie.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1570145820259-b5b80c5c8bd6?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Chocolate Cookie",
       "price": 1.5,
-      "photos": ["/images/cafeteria/desserts/cookie.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Chocolate Muffin",
       "price": 2.0,
-      "photos": ["/images/cafeteria/desserts/muffin.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1616151030755-76f6cd987a06?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Fruit Salad",
       "price": 2.5,
-      "photos": ["/images/cafeteria/desserts/fruits.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ],
 
@@ -176,19 +218,25 @@
       "name": "Sandwich Meal Deal",
       "price": 7.5,
       "description": "Sandwich + Drink + Dessert",
-      "photos": ["/images/cafeteria/formules/formule_sandwich.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1774806266787-a9500d23b9cb?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Hot Meal Deal",
       "price": 9.5,
       "description": "Hot dish + Drink + Dessert",
-      "photos": ["/images/cafeteria/formules/formule_chaud.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1533920770382-cc31b3447ab8?w=800&q=75&auto=format&fit=crop"
+      ]
     },
     {
       "name": "Snack Meal Deal",
       "price": 6.5,
       "description": "Hot snack + Drink",
-      "photos": ["/images/cafeteria/formules/formule_snack.jpg"]
+      "photos": [
+        "https://images.unsplash.com/photo-1762621713352-138cb5294f65?w=800&q=75&auto=format&fit=crop"
+      ]
     }
   ]
 }

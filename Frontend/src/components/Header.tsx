@@ -50,9 +50,9 @@ const Header = () => {
 
           {/* LOGO */}
           <img
-            src="/images/logo.png"
+            src="/images/logo.svg"
             alt="Food Coffee Logo"
-            className="h-32 w-auto object-contain rounded-sm"
+            className="h-14 w-auto object-contain"
           />
         </div>
 

@@ -36,7 +36,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="flex justify-between items-center px-6 py-5">
           <h3 className="text-lg font-semibold tracking-wide">Menu</h3>
 
-          <button onClick={onClose} aria-label="Close menu" className="text-3xl">
+          <button
+            onClick={onClose}
+            aria-label="Close menu"
+            className="text-3xl"
+          >
             <FiX />
           </button>
         </div>
@@ -44,7 +48,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="border-b border-black/10 mb-4"></div>
 
         {/* LINKS */}
-        <nav className="flex flex-col gap-6 px-6 text-lg font-semibold uppercase tracking-wide">
+        <nav className="flex flex-col gap-6 px-6 text-lg font-extralight uppercase tracking-wide">
           {links.map(({ to, label }) => (
             <NavLink
               key={to}

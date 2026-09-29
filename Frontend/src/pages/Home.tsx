@@ -36,7 +36,7 @@ const Home = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
+        <div className="absolute  bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
 
         <motion.div
           className="absolute w-[600px] h-[600px] bg-gold/90 blur-[120px] rounded-full -top-20 opacity-40"
@@ -51,15 +51,15 @@ const Home = () => {
         {/* Logo */}
 
         <motion.img
-          src="/images/logo.png"
+          src="/images/logo.svg"
           alt="Food Coffee Logo"
-          className="relative z-10 h-128 w-auto object-contain mb-6 rounded-lg"
+          className="relative z-10 h-128 w-auto object-contain rounded-lg"
           variants={fade}
           initial="hidden"
           animate="show"
         />
 
-        {/* Title */}
+        {/* Title
         <motion.h1
           className="relative z-10 text-5xl md:text-8xl font-serif mb-6 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-accent)" }}
@@ -68,11 +68,11 @@ const Home = () => {
           animate="show"
         >
           FOOD & COFFEE
-        </motion.h1>
+        </motion.h1> */}
 
         {/* Subtitle */}
         <motion.p
-          className="relative z-10 max-w-xl text-lg md:text-xl font-light drop-shadow-[0_0_15px_rgba(255,215,130,0.25)]"
+          className="relative z-10 max-w-xl text-lg font-extralight text-center drop-shadow-[0_0_15px_rgba(255,215,130,0.25)]"
           style={{ color: "var(--color-lightGold)" }}
           variants={fadeUp}
           initial="hidden"

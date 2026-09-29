@@ -28,7 +28,7 @@ const Footer = () => {
           {/* BRAND */}
           <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
             <img
-              src="/images/logo.png"
+              src="/images/logo.svg"
               alt="Food Coffee Logo"
               className="h-24 w-auto object-contain opacity-90"
             />
