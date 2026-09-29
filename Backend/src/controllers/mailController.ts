@@ -1,22 +1,25 @@
 import { Request, Response } from "express";
-import { escapeHtml, sendMail } from "../utils/mailer";
+import { sendMail } from "../utils/mailer";
+import { renderEmailHtml } from "../utils/emailTemplate";
 import { ensureDbConnection } from "../db/connection";
 import { EmailLog } from "../models/EmailLog";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const logEmail = async (
+// Best-effort logging: never let a slow/unreachable MongoDB delay the
+// contact/quote response the visitor is waiting on.
+const logEmail = (
   type: "contact" | "quote",
   fields: Record<string, unknown>,
   status: "sent" | "failed",
   error?: string,
 ) => {
-  try {
-    if (!(await ensureDbConnection())) return;
-    await EmailLog.create({ type, fields, status, error });
-  } catch (err) {
-    console.error("Failed to log email to MongoDB:", err);
-  }
+  ensureDbConnection()
+    .then((connected) => {
+      if (!connected) return;
+      return EmailLog.create({ type, fields, status, error });
+    })
+    .catch((err) => console.error("Failed to log email to MongoDB:", err));
 };
 
 export const sendContactEmail = async (req: Request, res: Response) => {
@@ -46,17 +49,20 @@ export const sendContactEmail = async (req: Request, res: Response) => {
     replyTo: email,
     subject: `[Contact] ${String(subject ?? "New message").trim() || "New message"} — ${name}`,
     text: lines.join("\n"),
-    html: [
-      `<p><strong>Name:</strong> ${escapeHtml(name)}</p>`,
-      `<p><strong>Email:</strong> ${escapeHtml(email)}</p>`,
-      company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : "",
-      phone ? `<p><strong>Phone:</strong> ${escapeHtml(phone)}</p>` : "",
-      `<p><strong>Message:</strong></p>`,
-      `<p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
-    ].join("\n"),
+    html: renderEmailHtml({
+      heading: "New message from the contact form",
+      intro: `${name} sent a message through the Food & Coffee website.`,
+      fields: [
+        { label: "Name", value: name },
+        { label: "Email", value: email },
+        ...(company ? [{ label: "Company", value: company }] : []),
+        ...(phone ? [{ label: "Phone", value: phone }] : []),
+      ],
+      message: { label: "Message", text: message },
+    }),
   });
 
-  await logEmail(
+  logEmail(
     "contact",
     { name, email, company, phone, subject, message },
     result.ok ? "sent" : "failed",
@@ -96,24 +102,24 @@ export const sendQuoteEmail = async (req: Request, res: Response) => {
   const result = await sendMail({
     subject: `[Quote request] ${company} — ${name}`,
     text: lines.join("\n"),
-    html: [
-      `<p><strong>Company:</strong> ${escapeHtml(company)}</p>`,
-      `<p><strong>Name:</strong> ${escapeHtml(name)}</p>`,
-      `<p><strong>Phone:</strong> ${escapeHtml(phone)}</p>`,
-      address
-        ? `<p><strong>Delivery address:</strong> ${escapeHtml(address)}</p>`
-        : "",
-      date ? `<p><strong>Date:</strong> ${escapeHtml(date)}</p>` : "",
-      people
-        ? `<p><strong>Number of people:</strong> ${escapeHtml(String(people))}</p>`
-        : "",
-      message
-        ? `<p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`
-        : "",
-    ].join("\n"),
+    html: renderEmailHtml({
+      heading: "New catering quote request",
+      intro: `${name} requested a quote through the Food & Coffee website.`,
+      fields: [
+        { label: "Company", value: company },
+        { label: "Name", value: name },
+        { label: "Phone", value: phone },
+        ...(address ? [{ label: "Delivery address", value: address }] : []),
+        ...(date ? [{ label: "Date", value: date }] : []),
+        ...(people
+          ? [{ label: "Number of people", value: String(people) }]
+          : []),
+      ],
+      ...(message ? { message: { label: "Message", text: message } } : {}),
+    }),
   });
 
-  await logEmail(
+  logEmail(
     "quote",
     { company, name, phone, address, date, people, message },
     result.ok ? "sent" : "failed",

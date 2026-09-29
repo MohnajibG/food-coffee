@@ -17,6 +17,13 @@ const ProductModal: FC<ProductModalProps> = ({
   onAdd,
 }) => {
   const [qty, setQty] = useState(1);
+  const [lastProduct, setLastProduct] = useState(product);
+
+  if (product !== lastProduct) {
+    setLastProduct(product);
+    setQty(1);
+  }
+
   if (!product) return null;
 
   const price = product.price;

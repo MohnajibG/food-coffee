@@ -24,8 +24,11 @@ const CartSidebar: FC<CartSidebarProps> = ({
 
   const [infos, setInfos] = useState({ name: "", email: "", phone: "" });
   const [error, setError] = useState<string | null>(null);
+  const [sending, setSending] = useState(false);
 
   const checkoutWithStripe = async () => {
+    if (sending) return;
+
     const customer = {
       name: infos.name.trim(),
       email: infos.email.trim(),
@@ -46,6 +49,7 @@ const CartSidebar: FC<CartSidebarProps> = ({
     }
 
     setError(null);
+    setSending(true);
 
     try {
       const res = await fetch(`${API_URL}/create-checkout-session`, {
@@ -59,10 +63,12 @@ const CartSidebar: FC<CartSidebarProps> = ({
         window.location.href = data.url;
       } else {
         setError(data?.error || "Failed to initiate payment.");
+        setSending(false);
       }
     } catch (err) {
       console.error(err);
       setError("Failed to initiate payment.");
+      setSending(false);
     }
   };
 
@@ -172,9 +178,9 @@ const CartSidebar: FC<CartSidebarProps> = ({
                 onClick={checkoutWithStripe}
                 whileHover={{ scale: 1.02 }}
                 className="mt-4 w-full rounded-xl bg-linear-to-r from-green-accent to-green-accent-dark py-3.5 text-lg font-semibold text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
-                disabled={cart.length === 0}
+                disabled={cart.length === 0 || sending}
               >
-                Pay with Stripe
+                {sending ? "Redirecting..." : "Pay with Stripe"}
               </motion.button>
             </div>
           </motion.aside>

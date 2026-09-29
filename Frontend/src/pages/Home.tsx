@@ -28,15 +28,15 @@ const Home = () => {
   return (
     <div className="flex flex-col w-full">
       {/* ===================== HERO ===================== */}
-      <section className="relative flex flex-col items-center justify-center text-center h-[50%] w-full theme-traiteur overflow-hidden px-6 pb-30">
+      <section className="relative flex min-h-[520px] w-full flex-col items-center justify-center text-center theme-traiteur overflow-hidden px-6 py-20 md:min-h-[640px]">
         {/* BG Anim */}
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary),var(--color-secondary))]"
+          className="absolute  inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary),var(--color-secondary))]"
           animate={{ opacity: [0.8, 1, 0.8] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="absolute  bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
+        <div className="absolute bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486719/noise_frqd9n.webp')] opacity-90 mix-blend-overlay" />
 
         <motion.div
           className="absolute w-[600px] h-[600px] bg-gold/90 blur-[120px] rounded-full -top-20 opacity-40"
@@ -48,39 +48,61 @@ const Home = () => {
           }}
         />
 
-        {/* Logo */}
-
+        {/* Logo — sized down per breakpoint so it never dominates the viewport */}
         <motion.img
           src="/images/logo.svg"
           alt="Food Coffee Logo"
-          className="relative z-10 h-128 w-auto object-contain rounded-lg"
+          className="relative z-10 h-24 w-auto object-contain sm:h-28 md:h-36 lg:h-44"
           variants={fade}
           initial="hidden"
           animate="show"
         />
 
-        {/* Title
+        {/* Title */}
         <motion.h1
-          className="relative z-10 text-5xl md:text-8xl font-serif mb-6 drop-shadow-[0_0_25px_rgba(255,215,130,0.25)]"
+          className="relative z-10 mt-6 text-3xl font-serif drop-shadow-[0_0_25px_rgba(255,215,130,0.25)] sm:text-4xl md:text-6xl"
           style={{ color: "var(--color-accent)" }}
           variants={fadeUp}
           initial="hidden"
           animate="show"
         >
-          FOOD & COFFEE
-        </motion.h1> */}
+          Catering &amp; Cafeterias
+        </motion.h1>
 
         {/* Subtitle */}
         <motion.p
-          className="relative z-10 max-w-xl text-lg font-extralight text-center drop-shadow-[0_0_15px_rgba(255,215,130,0.25)]"
+          className="relative z-10 mt-3 max-w-xl text-base font-extralight text-center drop-shadow-[0_0_15px_rgba(255,215,130,0.25)] sm:text-lg"
           style={{ color: "var(--color-lightGold)" }}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          Catering & Cafeterias.
+          Fresh meals, daily specials, and catering crafted for your campus or
+          event.
         </motion.p>
+
+        {/* CTAs */}
+        {/* <motion.div
+          className="relative z-10 mt-8 flex w-full max-w-sm flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Link
+            to="/order"
+            className="rounded-xl bg-linear-to-r from-gold to-lightGold px-8 py-3.5 text-center font-semibold text-black shadow-xl transition hover:brightness-105"
+          >
+            Order Now
+          </Link>
+          <Link
+            to="/traiteur"
+            className="rounded-xl border border-white/25 px-8 py-3.5 text-center font-semibold text-white backdrop-blur-xl transition hover:bg-white/10"
+          >
+            Discover Catering
+          </Link>
+        </motion.div> */}
       </section>
 
       {/* ===================== BLOCKS ===================== */}
@@ -125,7 +147,7 @@ const Home = () => {
           <Link to="/cafeterias">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486160/cafeteria_dozyx7.webp"
+                src="https://unsplash.com/fr/photos/vue-de-la-table-de-la-nourriture-du-petit-dejeuner-affichee-sur-la-table-les-gens-mang"
                 alt="Cafeterias"
                 className="w-full h-full object-cover hover:backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}

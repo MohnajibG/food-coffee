@@ -16,7 +16,7 @@ const MAX_QTY_PER_ITEM = 20;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
-  const { cart, customer } = req.body;
+  const { cart, customer } = req.body ?? {};
 
   const requestOrigin = req.get("origin");
   const frontendUrl =
@@ -40,7 +40,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
   }
 
   const line_items = [];
-  const orderItems = [];
+  const orderItems: { name: string; price: number; qty: number }[] = [];
   for (const item of cart) {
     const price = PRICE_BY_NAME.get(item?.name);
     if (price === undefined) {
@@ -77,9 +77,12 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
       cancel_url: `${frontendUrl}/cancel`,
     });
 
-    try {
-      if (await ensureDbConnection()) {
-        await Order.create({
+    // Best-effort logging: never let a slow/unreachable MongoDB delay the
+    // checkout response the customer is waiting on.
+    ensureDbConnection()
+      .then((connected) => {
+        if (!connected) return;
+        return Order.create({
           items: orderItems,
           customer: {
             name: customer.name,
@@ -89,10 +92,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
           amountTotal: session.amount_total ?? 0,
           stripeSessionId: session.id,
         });
-      }
-    } catch (err) {
-      console.error("Failed to log order to MongoDB:", err);
-    }
+      })
+      .catch((err) => console.error("Failed to log order to MongoDB:", err));
 
     res.json({ url: session.url });
   } catch (err) {
