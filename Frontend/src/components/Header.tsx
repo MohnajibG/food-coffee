@@ -41,6 +41,7 @@ const Header = () => {
           {/* BURGER MOBILE */}
           <button
             onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
             className="md:hidden text-3xl mx-5"
             style={{ color: "var(--color-text)" }}
           >

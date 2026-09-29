@@ -90,7 +90,7 @@ const Footer = () => {
         <div className="h-px w-full bg-gold/15" />
 
         {/* BOTTOM SECTION */}
-        <div className="flex flex-col items-center gap-2 text-center text-xs tracking-wide opacity-55 sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-2 text-center text-xs tracking-wide sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} FOOD COFFEE — All rights reserved.</span>
           <span>SIRET 00000000000000</span>
         </div>

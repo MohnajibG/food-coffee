@@ -36,7 +36,7 @@ const Home = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486719/noise_frqd9n.webp')] opacity-40 mix-blend-overlay" />
 
         <motion.div
           className="absolute w-[600px] h-[600px] bg-gold/90 blur-[120px] rounded-full -top-20 opacity-40"
@@ -95,7 +95,7 @@ const Home = () => {
           <Link to="/traiteur">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486167/traiteur_qccu3j.webp"
+                src="https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486167/traiteur_qccu3j.webp"
                 alt="Traiteur"
                 className="w-full h-full object-cover  backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
@@ -125,7 +125,8 @@ const Home = () => {
           <Link to="/cafeterias">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://res.cloudinary.com/dqwocrdnh/image/upload/v1765486160/cafeteria_dozyx7.webp"
+                src="https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486160/cafeteria_dozyx7.webp"
+                alt="Cafeterias"
                 className="w-full h-full object-cover hover:backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

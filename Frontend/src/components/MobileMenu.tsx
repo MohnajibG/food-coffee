@@ -36,7 +36,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="flex justify-between items-center px-6 py-5">
           <h3 className="text-lg font-semibold tracking-wide">Menu</h3>
 
-          <button onClick={onClose} className="text-3xl">
+          <button onClick={onClose} aria-label="Close menu" className="text-3xl">
             <FiX />
           </button>
         </div>

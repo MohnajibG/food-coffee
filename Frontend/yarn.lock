@@ -2278,7 +2278,6 @@ __metadata:
     react-pdf: ^10.2.0
     react-router-dom: ^7.9.6
     tailwindcss: ^4.1.17
-    turn.js: ^1.0.5
     typescript: ~5.9.3
     typescript-eslint: ^8.46.3
     vite: ^7.2.2
@@ -2615,13 +2614,6 @@ __metadata:
   bin:
     jiti: lib/jiti-cli.mjs
   checksum: 9394e29c5e40d1ca8267923160d8d86706173c9ff30c901097883434b0c4866de2c060427b6a9a5843bb3e42fa3a3c8b5b2228531d3dd4f4f10c5c6af355bb86
-  languageName: node
-  linkType: hard
-
-"jquery@npm:1.12.0":
-  version: 1.12.0
-  resolution: "jquery@npm:1.12.0"
-  checksum: e1fad382cf1c6af0ab1b0f7e20b9f5a2d58343b5022c3749956841a354642979d7dc678ce9f099140a81e5699767a4eda4ae1cf508e5231c0b4765133d63ad66
   languageName: node
   linkType: hard
 
@@ -3834,15 +3826,6 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
-  languageName: node
-  linkType: hard
-
-"turn.js@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "turn.js@npm:1.0.5"
-  dependencies:
-    jquery: 1.12.0
-  checksum: 5602aac0c9c6442492d85334668551cb0090bdd96873de8d458d1da1123b2b2ba04f511dfc4a964c9bc5eb3ff433d125ab3732710ad5c4b90baae3ecd1033573
   languageName: node
   linkType: hard
 
