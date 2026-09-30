@@ -3,71 +3,21 @@
 
   <defs>
     <clipPath id="badge">
-      <circle cx="120" cy="120" r="118"/>
+      <circle cx="120" cy="120" r="108"/>
     </clipPath>
-
-    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#B8934F"/>
-      <stop offset="42%" stop-color="#F7E5AE"/>
-      <stop offset="58%" stop-color="#F7E5AE"/>
-      <stop offset="100%" stop-color="#B8934F"/>
-    </linearGradient>
-
-    <filter id="lift" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="3" stdDeviation="2.2" flood-color="#20080c" flood-opacity="0.5"/>
-    </filter>
-
-    <filter id="badgeShadow" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.35"/>
-    </filter>
-
-    <radialGradient id="sphereShade" cx="38%" cy="32%" r="75%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
-      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.08"/>
-      <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.45"/>
-    </radialGradient>
-
-    <radialGradient id="specular" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <g filter="url(#badgeShadow)">
-    <circle cx="120" cy="120" r="118" fill="#4A1F29"/>
-  </g>
-
+  <!-- Blason aplati : fond transparent, seul le disque est peint -->
   <g clip-path="url(#badge)">
-    <rect width="240" height="240" fill="#4A1F29"/>
-    <polygon points="240,0 240,240 0,240" fill="#50741F"/>
-
-    <!-- spherical shading: light top-left, dark rim -->
-    <circle cx="120" cy="120" r="120" fill="url(#sphereShade)"/>
-
-    <!-- glossy specular highlight -->
-    <ellipse cx="80" cy="62" rx="58" ry="34" fill="url(#specular)"/>
+    <rect width="240" height="240" fill="#4b5e3f"/>
+    <polygon points="240,0 240,240 0,240" fill="#6b4226"/>
   </g>
 
-  <circle cx="120" cy="120" r="110" fill="none" stroke="#D8B56A" stroke-opacity="0.35" stroke-width="1.5"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#c99a3e" stroke-width="3.6"/>
 
-  <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <!-- FOOD: depth stack + shine face -->
-    <g filter="url(#lift)">
-      <text x="120" y="109" font-size="32" font-weight="700" letter-spacing="2" fill="#6E4F26">FOOD</text>
-      <text x="120" y="108" font-size="32" font-weight="700" letter-spacing="2" fill="#8A6A35">FOOD</text>
-      <text x="120" y="106" font-size="32" font-weight="700" letter-spacing="2" fill="url(#goldShine)">FOOD</text>
-    </g>
-
-    <line x1="78" y1="124" x2="102" y2="124" stroke="#D8B56A" stroke-width="1.5"/>
-    <text x="120" y="130" font-size="18" fill="#D8B56A">&amp;</text>
-    <line x1="138" y1="124" x2="162" y2="124" stroke="#D8B56A" stroke-width="1.5"/>
-
-    <!-- COFFEE: depth stack + shine face -->
-    <g filter="url(#lift)">
-      <text x="120" y="169" font-size="32" font-weight="700" letter-spacing="2" fill="#6E4F26">COFFEE</text>
-      <text x="120" y="168" font-size="32" font-weight="700" letter-spacing="2" fill="#8A6A35">COFFEE</text>
-      <text x="120" y="166" font-size="32" font-weight="700" letter-spacing="2" fill="url(#goldShine)">COFFEE</text>
-    </g>
+  <g font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800" text-anchor="middle">
+    <text x="120" y="113" font-size="32" letter-spacing="1.8" fill="#f0c24b">FOOD</text>
+    <line x1="91" y1="126" x2="149" y2="126" stroke="#f0c24b" stroke-width="1.8"/>
+    <text x="120" y="154" font-size="32" letter-spacing="1.8" fill="#f0c24b">COFFEE</text>
   </g>
 </svg>

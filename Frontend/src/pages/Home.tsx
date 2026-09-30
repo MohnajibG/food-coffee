@@ -60,8 +60,7 @@ const Home = () => {
 
         {/* Title */}
         <motion.h1
-          className="relative z-10 mt-6 text-3xl font-serif drop-shadow-[0_0_25px_rgba(255,215,130,0.25)] sm:text-4xl md:text-6xl"
-          style={{ color: "var(--color-accent)" }}
+          className="text-shine-gold relative z-12 mt-6 text-3xl font-extralight drop-shadow-[0_0_25px_rgba(255,215,130,0.25)] sm:text-4xl md:text-6xl"
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -69,8 +68,21 @@ const Home = () => {
           Catering &amp; Cafeterias
         </motion.h1>
 
+        {/* Gold divider */}
+        <motion.div
+          className="relative z-10 mt-4 h-0.5 w-20 rounded-full sm:w-28"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, var(--color-gold), transparent)",
+          }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        />
+
         {/* Subtitle */}
-        <motion.p
+        {/* <motion.p
           className="relative z-10 mt-3 max-w-xl text-base font-extralight text-center drop-shadow-[0_0_15px_rgba(255,215,130,0.25)] sm:text-lg"
           style={{ color: "var(--color-lightGold)" }}
           variants={fadeUp}
@@ -80,7 +92,7 @@ const Home = () => {
         >
           Fresh meals, daily specials, and catering crafted for your campus or
           event.
-        </motion.p>
+        </motion.p> */}
 
         {/* CTAs */}
         {/* <motion.div
@@ -117,7 +129,7 @@ const Home = () => {
           <Link to="/traiteur">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://res.cloudinary.com/dqwocrdnh/image/upload/f_auto,q_auto,w_800/v1765486167/traiteur_qccu3j.webp"
+                src="https://images.unsplash.com/photo-1645914401798-1f93bb80b6ec?w=800&q=75&auto=format&fit=crop"
                 alt="Traiteur"
                 className="w-full h-full object-cover  backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
@@ -147,7 +159,7 @@ const Home = () => {
           <Link to="/cafeterias">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://unsplash.com/fr/photos/vue-de-la-table-de-la-nourriture-du-petit-dejeuner-affichee-sur-la-table-les-gens-mang"
+                src="https://images.unsplash.com/photo-1551266681-ba5f0b95e2e5?w=800&q=75&auto=format&fit=crop"
                 alt="Cafeterias"
                 className="w-full h-full object-cover hover:backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
@@ -183,14 +195,14 @@ const Home = () => {
         <div className="absolute w-[700px] h-[700px] bg-gold/20 blur-[160px] rounded-full -top-32 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 rotate-12 pointer-events-none" />
 
-        <h3 className="text-4xl md:text-5xl font-serif mb-6 tracking-wide opacity-0 animate-[fadeUp_1.2s_ease-out_forwards] text-lightGold">
+        <h3 className="text-4xl md:text-5xl mb-6 tracking-wide opacity-0 animate-[fadeUp_1.2s_ease-out_forwards] text-lightGold">
           A solution designed for your needs
         </h3>
 
         <p className="max-w-2xl text-lg md:text-xl opacity-0 mt-2 leading-relaxed animate-[fadeUp_1.6s_ease-out_forwards] text-(--color-bg)">
-          More than just catering: FOOD COFFEE creates gourmet spaces, organizes
-          your events, and designs professional menus for companies, schools,
-          and large institutions.
+          More than just catering: FOOD & COFFEE creates gourmet spaces,
+          organizes your events, and designs professional menus for companies,
+          schools, and large institutions.
         </p>
 
         <Link

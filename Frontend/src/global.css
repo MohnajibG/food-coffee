@@ -4,13 +4,19 @@
    ===============  THEME GLOBAL — TAILWIND V4  =================
    ============================================================ */
 @theme {
-  /* Couleurs génériques */
-  --color-gold: #d8b56a;
-  --color-lightGold: #ebd7a1;
+  /* Couleurs génériques — doré brillant, utilisé pour tous les textes d'accent */
+  --color-gold: #f0c24b;
+  --color-lightGold: #ffe9a8;
 
-  /* Palette unifiée de l'interface de commande (panier, produits) */
-  --color-green-accent: #50741f;
-  --color-green-accent-dark: #3f5e13;
+  /* Vert salades — forêt doré */
+  --color-green-accent: #4b5e3f;
+  --color-green-accent-dark: #35442b;
+  --color-green-accent-light: #7c9468;
+
+  /* Marron café / chocolat — moka chaud */
+  --color-coffee: #6b4226;
+  --color-chocolate: #a97449;
+
   --color-cream: #f7f1e4;
   --color-ink: #212121;
 
@@ -24,6 +30,14 @@
   }
 
   --animate-shimmer: shimmer 1.5s infinite;
+
+  @keyframes goldShine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  --animate-gold-shine: goldShine 3s linear infinite;
 }
 
 /* ==================== THEME TRAITEUR ======================= */
@@ -31,7 +45,7 @@
   --color-primary: #4a1f29;
   --color-secondary: #875d65;
   --color-secondary-green: var(--color-green-accent);
-  --color-secondary-green-light: #82a94f;
+  --color-secondary-green-light: var(--color-green-accent-light);
   --color-accent: var(--color-gold);
   --color-accent-light: var(--color-lightGold);
   --color-bg: #fff;
@@ -40,13 +54,28 @@
 
 /* ==================== THEME CAFÉ ============================ */
 .theme-cafe {
-  --color-primary: #5c3a21;
-  --color-secondary: #8b5e34;
+  --color-primary: var(--color-coffee);
+  --color-secondary: var(--color-chocolate);
   --color-tertiary: #d4a772;
   --color-accent: var(--color-gold);
   --color-accent-light: var(--color-lightGold);
   --color-bg: #faf5ef;
   --color-text: #2a1f16;
+}
+
+/* Texte doré brillant — à utiliser sur les titres/accents mis en avant */
+.text-shine-gold {
+  background-image: linear-gradient(
+    110deg,
+    var(--color-gold) 20%,
+    var(--color-lightGold) 45%,
+    var(--color-gold) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: var(--animate-gold-shine);
 }
 
 /* ==================== NORMALISATION ========================= */

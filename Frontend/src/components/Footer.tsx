@@ -40,9 +40,7 @@ const Footer = () => {
 
           {/* NAVIGATION */}
           <div className="flex flex-col items-center gap-3 text-center md:items-start md:text-left">
-            <h3 className="font-serif text-lg tracking-wide text-gold">
-              Company
-            </h3>
+            <h3 className="text-lg tracking-wide text-gold">Company</h3>
             <ul className="flex flex-col gap-2.5 text-sm opacity-70">
               {navLinks.map((link) => (
                 <li key={link}>{link}</li>
@@ -52,9 +50,7 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div className="flex flex-col items-center gap-4 text-center md:items-end md:text-right">
-            <h3 className="font-serif text-lg tracking-wide text-gold">
-              Contact
-            </h3>
+            <h3 className="text-lg tracking-wide text-gold">Contact</h3>
 
             <ul className="flex flex-col gap-2.5 text-sm opacity-80">
               <li className="flex items-center gap-2 md:flex-row-reverse">
@@ -91,7 +87,9 @@ const Footer = () => {
 
         {/* BOTTOM SECTION */}
         <div className="flex flex-col items-center gap-2 text-center text-xs tracking-wide sm:flex-row sm:justify-between">
-          <span>© {new Date().getFullYear()} FOOD COFFEE — All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} FOOD COFFEE — All rights reserved.
+          </span>
           <span>SIRET 00000000000000</span>
         </div>
       </div>
