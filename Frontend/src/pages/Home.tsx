@@ -10,11 +10,6 @@ const fadeUp: Variants = {
   },
 };
 
-const fade: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 1 } },
-};
-
 const zoom: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
   show: {
@@ -48,14 +43,14 @@ const Home = () => {
           }}
         />
 
-        {/* Logo — sized down per breakpoint so it never dominates the viewport */}
-        <motion.img
+        {/* Logo — LCP element: rendered immediately, no fade/JS delay, eagerly fetched */}
+        <img
           src="/images/logo.svg"
           alt="Food Coffee Logo"
           className="relative z-10 h-24 w-auto object-contain sm:h-28 md:h-52 lg:h-52"
-          variants={fade}
-          initial="hidden"
-          animate="show"
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
         />
 
         {/* Title */}
@@ -129,7 +124,7 @@ const Home = () => {
           <Link to="/traiteur">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-traiteur rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://images.unsplash.com/photo-1645914401798-1f93bb80b6ec?w=800&q=75&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1645914401798-1f93bb80b6ec?w=640&q=60&auto=format&fit=crop"
                 alt="Traiteur"
                 className="w-full h-full object-cover  backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
@@ -159,7 +154,7 @@ const Home = () => {
           <Link to="/cafeterias">
             <div className="relative flex h-[400px] overflow-hidden shadow-2xl theme-cafe rounded-4xl transition-transform duration-700 hover:scale-105">
               <motion.img
-                src="https://images.unsplash.com/photo-1551266681-ba5f0b95e2e5?w=800&q=75&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1551266681-ba5f0b95e2e5?w=640&q=60&auto=format&fit=crop"
                 alt="Cafeterias"
                 className="w-full h-full object-cover hover:backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
