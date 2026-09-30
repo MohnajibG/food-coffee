@@ -1,0 +1,11 @@
+# Food & Coffee
+
+> Food & Coffee propose des services de traiteur premium et des cafétérias de campus/entreprise : menus du jour, commande en ligne et organisation d'événements pour entreprises, écoles et institutions.
+
+## Pages principales
+
+- [Accueil](/): Présentation de Food & Coffee, accès au traiteur et aux cafétérias.
+- [Traiteur](/traiteur): Services de traiteur pour entreprises, campus et événements professionnels.
+- [Cafétérias](/cafeterias): Menus par catégorie (plats chauds, sandwichs, boissons, desserts) et commande en ligne.
+- [Commander](/order): Passer une commande en ligne dans une cafétéria.
+- [Contact](/contact): Coordonnées, demande de devis et informations pratiques.

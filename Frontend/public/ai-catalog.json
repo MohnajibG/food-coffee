@@ -1,0 +1,38 @@
+{
+  "name": "Food & Coffee",
+  "description": "Services de traiteur premium et cafétérias de campus/entreprise : menus du jour, commande en ligne et organisation d'événements.",
+  "llms_txt": "/llms.txt",
+  "robots_txt": "/robots.txt",
+  "resources": [
+    {
+      "name": "Accueil",
+      "url": "/",
+      "type": "page",
+      "description": "Présentation de Food & Coffee, accès au traiteur et aux cafétérias."
+    },
+    {
+      "name": "Traiteur",
+      "url": "/traiteur",
+      "type": "page",
+      "description": "Services de traiteur pour entreprises, campus et événements professionnels."
+    },
+    {
+      "name": "Cafétérias",
+      "url": "/cafeterias",
+      "type": "page",
+      "description": "Menus par catégorie (plats chauds, sandwichs, boissons, desserts) et commande en ligne."
+    },
+    {
+      "name": "Commander",
+      "url": "/order",
+      "type": "page",
+      "description": "Passer une commande en ligne dans une cafétéria."
+    },
+    {
+      "name": "Contact",
+      "url": "/contact",
+      "type": "page",
+      "description": "Coordonnées, demande de devis et informations pratiques."
+    }
+  ]
+}
