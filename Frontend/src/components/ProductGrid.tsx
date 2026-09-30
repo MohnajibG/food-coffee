@@ -31,7 +31,7 @@ const ProductGrid: FC<ProductGridProps> = ({ selectedCat, setProduct }) => {
             className="relative cursor-pointer rounded-2xl border border-black/5 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-green-accent/25 hover:shadow-lg sm:p-4"
           >
             <div className="flex min-h-28 items-start gap-3 sm:min-h-36 sm:flex-col">
-              <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-black/5 sm:aspect-[4/3] sm:h-auto sm:w-full">
+              <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-black/5 sm:aspect-4/3 sm:h-auto sm:w-full">
                 <img
                   src={item.photos?.[0]}
                   alt={item.name || "Product"}

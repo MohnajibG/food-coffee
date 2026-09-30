@@ -32,7 +32,7 @@ const Footer = () => {
               alt="Food Coffee Logo"
               className="h-24 w-auto object-contain opacity-90"
             />
-            <p className="max-w-xs text-sm leading-relaxed opacity-70">
+            <p className="max-w-xs text-sm text-justify leading-relaxed opacity-70">
               Premium catering services and culinary expertise dedicated to
               corporate spaces, campuses, and professional events.
             </p>

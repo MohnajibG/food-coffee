@@ -52,7 +52,7 @@ const Home = () => {
         <motion.img
           src="/images/logo.svg"
           alt="Food Coffee Logo"
-          className="relative z-10 h-24 w-auto object-contain sm:h-28 md:h-36 lg:h-44"
+          className="relative z-10 h-24 w-auto object-contain sm:h-28 md:h-52 lg:h-52"
           variants={fade}
           initial="hidden"
           animate="show"
@@ -60,17 +60,17 @@ const Home = () => {
 
         {/* Title */}
         <motion.h1
-          className="text-shine-gold relative z-12 mt-6 text-3xl font-extralight drop-shadow-[0_0_25px_rgba(255,215,130,0.25)] sm:text-4xl md:text-6xl"
+          className="text-shine-gold relative z-12 mt-6 w-full max-w-[22ch] text-balance text-3xl font-extrabold drop-shadow-[0_0_25px_rgba(255,215,130,0.25)] sm:max-w-none sm:text-4xl md:text-8xl"
           variants={fadeUp}
           initial="hidden"
           animate="show"
         >
-          Catering &amp; Cafeterias
+          Catering <br /> &amp; <br /> Cafeterias
         </motion.h1>
 
         {/* Gold divider */}
         <motion.div
-          className="relative z-10 mt-4 h-0.5 w-20 rounded-full sm:w-28"
+          className="relative z-10 mt-12 h-0.5 w-20 rounded-full sm:w-28"
           style={{
             background:
               "linear-gradient(90deg, transparent, var(--color-gold), transparent)",
@@ -195,11 +195,11 @@ const Home = () => {
         <div className="absolute w-[700px] h-[700px] bg-gold/20 blur-[160px] rounded-full -top-32 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 rotate-12 pointer-events-none" />
 
-        <h3 className="text-4xl md:text-5xl mb-6 tracking-wide opacity-0 animate-[fadeUp_1.2s_ease-out_forwards] text-lightGold">
+        <h3 className="text-4xl md:text-5xl mb-6 tracking-wide opacity-0 text-justify animate-[fadeUp_1.2s_ease-out_forwards] text-lightGold uppercase font-extralight">
           A solution designed for your needs
         </h3>
 
-        <p className="max-w-2xl text-lg md:text-xl opacity-0 mt-2 leading-relaxed animate-[fadeUp_1.6s_ease-out_forwards] text-(--color-bg)">
+        <p className="max-w-2xl text-lg md:text-xl text-justify opacity-0 mt-2 leading-relaxed animate-[fadeUp_1.6s_ease-out_forwards] text-(--color-bg)">
           More than just catering: FOOD & COFFEE creates gourmet spaces,
           organizes your events, and designs professional menus for companies,
           schools, and large institutions.
