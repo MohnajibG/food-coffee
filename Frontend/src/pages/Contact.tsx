@@ -181,8 +181,8 @@ const Contact = (): JSX.Element => {
         <div className="mt-10 text-(--color-text)/80 text-center space-y-2 text-sm">
           <p>
             Email:{" "}
-            <a href="mailto:contact@foodcoffee.com" className="underline">
-              contact@foodcoffee.com
+            <a href="mailto:contact@mngdev.pro" className="underline">
+              contact@mngdev.pro
             </a>
           </p>
           <p>
